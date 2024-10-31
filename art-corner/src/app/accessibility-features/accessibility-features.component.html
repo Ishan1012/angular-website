@@ -1,0 +1,48 @@
+<div *ngIf="!checkActive; else addedFavourites">
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="main d-flex justify-self-center">
+            <div class="heading">
+                <h2>No favourites yet</h2>
+            </div>
+            <div class="disc text-center">
+                <p>Use the favourite button to save artworks, stories, collection and more</p>
+            </div>
+            <div class="button">
+                <button type="submit" routerLink="/explore" (click)="OpenExplore()">Start
+                    Exploring</button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #addedFavourites>
+    <div class="container-fluid">
+        <br>
+        <h1 style="padding-left: 30px;">Bookmarks</h1>
+        <br>
+        <div class="row g-4 justify-content-center">
+            <div *ngFor="let item of bookmarks; trackBy: trackByFn"
+                class="col-xl-3 col-lg-4 col-md-5 col-sm-7 col-auto">
+                <div class="card text-center" style="width: 18rem; overflow: hidden;">
+                    <img [src]="item.img" class="card-img-top img-fit" alt="Image">
+                    <div class="card-body edit-card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <div class="btn-styles text-end">
+                            <a class="btn btn-outline-primary" routerLink="/bookmarks/{{currentItem}}" (click)="readMore(item)">Read more</a>
+                            <a *ngIf="item.bookmark; else unlikeTemplate" class="btn btn-outline-warning"
+                                (click)="toggleBookmark(item)">
+                                <i class="bi bi-bookmark-fill"></i>
+                            </a>
+                            <ng-template #unlikeTemplate>
+                                <a class="btn btn-outline-warning" (click)="toggleBookmark(item)">
+                                    <i class="bi bi-bookmark"></i>
+                                </a>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</ng-template>

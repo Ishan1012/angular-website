@@ -1,0 +1,29 @@
+.contents {
+    padding: 0;
+}
+
+.img-navbar-edit {
+    height: 6vh;
+}
+
+.bg-color {
+    background-color: #fcefbd;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    max-height: 50px;
+    font-size: small;
+    text-wrap: wrap;
+    background-color: #f0f0f0;
+    /* Adjust background color as needed */
+}
+
+.link-edit {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #ffffff;
+}

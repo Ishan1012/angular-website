@@ -1,0 +1,48 @@
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    color: white;
+    background-color: blue;
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 50px;
+    width: 150px;
+    font-size: larger;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-styles {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.img-fit {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.edit-card-body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.card-text-edit {
+    flex-grow: 1;
+}
+
+.justified {
+    display: inline-block;
+    text-justify: inter-word;
+}

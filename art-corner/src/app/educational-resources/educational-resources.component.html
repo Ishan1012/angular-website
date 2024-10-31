@@ -1,0 +1,39 @@
+<div class="container text-center mx-auto container-edit">
+    <div class="container container-space mt-3">
+        <a class="btn btn-danger button-edit" (click)="moveBack(currentItem)">Previous</a>
+        <a class="btn btn-danger button-edit" (click)="moveNext(currentItem)">Next</a>
+    </div>
+    <br>
+    <div class="title-image-wrapper d-flex align-items-center flex-column">
+        <img [src]="currentItem.img" [class.show]="!isFading" loading="lazy"
+            class="img-edit mb-3 h-xl-10 h-md-20 h-sm-30" alt="Image" style="padding: 0;">
+
+        <div>
+            <h1 class="content-title">{{currentItem.title}}</h1>
+        </div>
+    </div>
+    <div class="icon-bar d-flex justify-content-center gap-1">
+        <a target="_blank" class="btn" (click)="toggleLike(currentItem)"><i
+                [ngClass]="currentItem.like?'bi-heart-fill edit-heart':'bi-heart'" class="bi fs-3"></i></a>
+        <a target="_blank" [href]="currentItem.img" class="btn"><i class="bi bi-download fs-3"></i></a>
+        <a target="_blank" class="btn"><i class="bi bi-instagram fs-3"></i></a>
+        <a target="_blank" class="btn"><i class="bi bi-twitter-x fs-3"></i></a>
+        <a target="_blank" class="btn"><i class="bi bi-share fs-3"></i></a>
+    </div>
+    <br>
+    <p class="content-description">{{currentItem.desc}}</p>
+    <br>
+    <hr>
+    <div>
+        <h1 class="text-start content-title view-more">View More</h1>
+        <div class="row g-4 justify-content-center">
+            <div *ngFor="let item of recommend_list; trackBy: trackByFn"
+                class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
+                <div class="card text-center h-100 img-container" style="overflow: hidden;">
+                    <img [src]="item.img" (click)="openImage(item)" loading="lazy" class="img more-img" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
