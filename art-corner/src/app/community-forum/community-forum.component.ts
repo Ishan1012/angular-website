@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './community-forum.component.css'
 })
 export class CommunityForumComponent {
-
 }
