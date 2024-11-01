@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {page: 'explore', artifacts: initialArtifacts, list: initialArtifacts, navActive: false} },
   { path: 'community', component: CommunityForumComponent },
   { path: 'about', component: FeedbackAboutUsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '**', redirectTo: '/index' }
 ];
 
 @NgModule({
