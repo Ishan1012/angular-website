@@ -17,6 +17,7 @@ export class EducationalResourcesComponent implements OnInit {
   list: CreateExplore[] = [];
   isFading: boolean = false;
   getCurrentId: number = 0;
+  isActive: boolean = true;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -24,6 +25,7 @@ export class EducationalResourcesComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(data => {
       this.artifacts = data['artifacts'];
+      this.isActive = data['navActive'];
       if(this.list)
       this.list = data['list'];
     });
@@ -55,13 +57,16 @@ export class EducationalResourcesComponent implements OnInit {
 
   @HostListener('window:keydown',['$event'])
   handleKeyDown(event: KeyboardEvent){
-    if(event.key === 'ArrowLeft')
+    if(this.isActive)
     {
-      this.moveBack(this.currentItem);
-    }
-    else
-    {
-      this.moveNext(this.currentItem);
+      if(event.key === 'ArrowLeft')
+      {
+        this.moveBack(this.currentItem);
+      }
+      else
+      {
+        this.moveNext(this.currentItem);
+      }
     }
   }
 

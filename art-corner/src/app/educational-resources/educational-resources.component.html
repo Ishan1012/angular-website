@@ -1,5 +1,5 @@
 <div class="container text-center mx-auto container-edit">
-    <div class="container container-space mt-3">
+    <div *ngIf="isActive" class="container container-space mt-3">
         <a class="btn btn-danger button-edit" (click)="moveBack(currentItem)">Previous</a>
         <a class="btn btn-danger button-edit" (click)="moveNext(currentItem)">Next</a>
     </div>
