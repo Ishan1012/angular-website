@@ -33,10 +33,10 @@
     opacity: 1;
 }
 
-@media(max-width:450px){
+@media(max-width:650px){
     .img-edit{
-        width: 100%;
-        height: auto;
+        max-width: 70vw;
+        width: auto;
     }
 
     .container-description{

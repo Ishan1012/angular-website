@@ -11,6 +11,7 @@ import { BlogNewsSectionComponent } from './blog-news-section/blog-news-section.
 import { CommunityForumComponent } from './community-forum/community-forum.component';
 import { EducationalResourcesComponent } from './educational-resources/educational-resources.component';
 import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.component';
+import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.
     BlogNewsSectionComponent,
     CommunityForumComponent,
     EducationalResourcesComponent,
-    FeedbackAboutUsComponent
+    FeedbackAboutUsComponent,
+    GeneralCommunityPageComponent
   ],
   imports: [
     BrowserModule,
