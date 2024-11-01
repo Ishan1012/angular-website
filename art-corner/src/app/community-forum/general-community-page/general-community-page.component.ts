@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CreateExplore } from '../../data/CreateExplore';
 import { ActivatedRoute } from '@angular/router';
+import { CreateCommunities } from '../../data/CreateCommunities';
 
 @Component({
   selector: 'app-general-community-page',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './general-community-page.component.css'
 })
 export class GeneralCommunityPageComponent {
-  artifacts: CreateExplore[] = [];
+  communities: CreateCommunities[] = [];
 
   constructor(private activeRoute: ActivatedRoute){
 
@@ -16,7 +16,7 @@ export class GeneralCommunityPageComponent {
 
   ngOnInit(){
     this.activeRoute.data.subscribe(data => {
-      this.artifacts = data['artifacts'];
+      this.communities = data['communities'];
     });
   }
 
