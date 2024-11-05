@@ -5,9 +5,10 @@
     </div>
     <br>
     <div class="title-image-wrapper d-flex align-items-center flex-column">
-        <img [src]="currentItem.img" [class.show]="!isFading" loading="lazy"
-            class="img-edit mb-3 h-xl-10 h-md-20 h-sm-30" alt="Image" style="padding: 0;">
-
+        <a target="_blank" [href]="currentItem.img">
+            <img [src]="currentItem.img" [class.show]="!isFading" loading="lazy"
+                class="img-edit mb-3 h-xl-10 h-md-20 h-sm-30" alt="Image" style="padding: 0;">
+        </a>    
         <div>
             <h1 class="content-title">{{currentItem.title}}</h1>
         </div>
