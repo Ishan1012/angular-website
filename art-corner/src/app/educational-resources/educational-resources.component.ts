@@ -1,8 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CreateExplore } from '../data/CreateExplore';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../data/encryptionKey';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class EducationalResourcesComponent implements OnInit {
   getCurrentId: number = 0;
   isActive: boolean = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,@Inject(PLATFORM_ID) private platformId: any) {
   }
 
   ngOnInit() {
@@ -126,10 +127,12 @@ export class EducationalResourcesComponent implements OnInit {
   }
 
   scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 
   trackByFn(_index: number,item: CreateExplore) {

@@ -111,6 +111,6 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.more-img img:hover {
+.more-img:hover {
     transform: scale(1.2);
 }
