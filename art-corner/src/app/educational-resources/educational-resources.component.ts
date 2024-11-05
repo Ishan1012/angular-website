@@ -144,5 +144,8 @@ export class EducationalResourcesComponent implements OnInit {
     const index2 = this.artifacts.indexOf(this.currentItem);
     this.scrollToTop();
     this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
+    let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
+    let encodeId = encodeURIComponent(encrypted);
+    this.router.navigate(['/explore',encodeId]);
   }
 }
