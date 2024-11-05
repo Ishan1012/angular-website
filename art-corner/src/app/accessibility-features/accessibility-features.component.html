@@ -27,7 +27,7 @@
                     <div class="card-body edit-card-body">
                         <h5 class="card-title">{{item.title}}</h5>
                         <div class="btn-styles text-end">
-                            <a class="btn btn-outline-primary" routerLink="/bookmarks/{{currentItem}}" (click)="readMore(item)">Read more</a>
+                            <a class="btn btn-outline-primary" routerLink="/bookmarks/{{currentItem}}" (click)="readMore(item)">Preview</a>
                             <a *ngIf="item.bookmark; else unlikeTemplate" class="btn btn-outline-warning"
                                 (click)="toggleBookmark(item)">
                                 <i class="bi bi-bookmark-fill"></i>
