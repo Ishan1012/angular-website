@@ -96,6 +96,11 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 - **Node.js** (v12 or higher)
 - **Angular CLI**
 
+```bash
+# Install Angular CLI globally
+npm install -g @angular/cli
+```
+
 ### **Steps to Run the Application Locally**
 1. Clone the repository:
    ```bash
