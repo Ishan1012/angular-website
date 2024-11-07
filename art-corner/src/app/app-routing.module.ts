@@ -12,7 +12,7 @@ import { initialCommunities } from './data/initialCommunities';
 
 const routes: Routes = [
   { path: 'home', component: IndexPageComponent, data: {page: 'home', artifacts: initialArtifacts}},
-  { path: 'index', component: IndexPageComponent, data: {page: 'home'}},
+  { path: 'index', component: IndexPageComponent, data: {page: 'index'}},
   { path: 'explore', component: ExploreComponentsComponent, data: {page: 'explore', artifacts: initialArtifacts} },
   { path: 'explore/:id', component: EducationalResourcesComponent, data: {page: 'explore', artifacts: initialArtifacts, list: initialArtifacts, navActive: true} },
   { path: 'bookmarks', component: AccessibilityFeaturesComponent, data: {page: 'bookmarks', artifacts: initialArtifacts} },
