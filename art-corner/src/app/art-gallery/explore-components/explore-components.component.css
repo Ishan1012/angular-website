@@ -1,3 +1,11 @@
+.card{
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.04);
+}
+
 .card-container {
     display: flex;
     justify-content: space-around;

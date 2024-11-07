@@ -108,6 +108,14 @@ h3 {
     color: rgb(250, 1, 1);
 }
 
+.hero-image{
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-image:hover{
+    transform: scale(1.1);
+}
+
 .hero .hero-images {
     height: 600px;
     width: auto;
