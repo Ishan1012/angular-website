@@ -18,6 +18,8 @@ import { GeneralCommunityPageComponent } from './community-forum/general-communi
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment.prod';
+import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
+import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-dashboard/admin-login-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { environment } from '../environments/environment.prod';
     CommunityForumComponent,
     EducationalResourcesComponent,
     FeedbackAboutUsComponent,
-    GeneralCommunityPageComponent
+    GeneralCommunityPageComponent,
+    UserLoginDashboardComponent,
+    AdminLoginDashboardComponent
   ],
   imports: [
     BrowserModule,
