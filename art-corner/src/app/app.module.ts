@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +15,9 @@ import { CommunityForumComponent } from './community-forum/community-forum.compo
 import { EducationalResourcesComponent } from './educational-resources/educational-resources.component';
 import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.component';
 import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -28,10 +34,15 @@ import { GeneralCommunityPageComponent } from './community-forum/general-communi
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireAuthModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideFirebaseApp(() => initializeApp({"projectId":"art-corner-ea8cb","appId":"1:37642620974:web:cbf53d5dd2f16161b34fbf","storageBucket":"art-corner-ea8cb.firebasestorage.app","apiKey":"AIzaSyCIa5AN2mekSI5-VFhl2PFfo7HjGkl6Yg0","authDomain":"art-corner-ea8cb.firebaseapp.com","messagingSenderId":"37642620974","measurementId":"G-8LW0ZS4LT8"})),
+    provideAuth(() => getAuth())
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,4 @@
-<p>artists-profiles works!</p>
+<input type="text" #email placeholder="Email">
+<input type="password" #password placeholder="Password">
+<button (click)="login(email.value, password.value)">Login</button>
+<button (click)="logout()">Signout</button>

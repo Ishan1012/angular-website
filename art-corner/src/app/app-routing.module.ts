@@ -9,10 +9,12 @@ import { initialArtifacts } from './data/initialArtifacts';
 import { EducationalResourcesComponent } from './educational-resources/educational-resources.component';
 import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
 import { initialCommunities } from './data/initialCommunities';
+import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.component';
 
 const routes: Routes = [
   { path: 'home', component: IndexPageComponent, data: {page: 'home', artifacts: initialArtifacts}},
   { path: 'index', component: IndexPageComponent, data: {page: 'index'}},
+  { path: 'login', component: ArtistsProfilesComponent, data: {page: 'login'}},
   { path: 'explore', component: ExploreComponentsComponent, data: {page: 'explore', artifacts: initialArtifacts} },
   { path: 'explore/:id', component: EducationalResourcesComponent, data: {page: 'explore', artifacts: initialArtifacts, list: initialArtifacts, navActive: true} },
   { path: 'bookmarks', component: AccessibilityFeaturesComponent, data: {page: 'bookmarks', artifacts: initialArtifacts} },
