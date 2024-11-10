@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CreateExplore } from '../../data/CreateExplore';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../../data/encryptionKey';
 import { ArtifactsService } from '../../services/artifacts.service';
@@ -16,12 +16,19 @@ export class ExploreComponentsComponent {
 
   constructor(
     private router: Router,
-    private getArtifacts: ArtifactsService
+    private getArtifacts: ArtifactsService,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.artifacts = this.getArtifacts.getAll();
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['searchitem'])
+        this.artifacts = this.getArtifacts.getAllArtifactsBySearchTerm(params['searchitem']);
+
+      if(this.artifacts.length === 0)
+        this.artifacts = this.getArtifacts.getAll();
+    })
   }
 
   trackByFn(item: any) {

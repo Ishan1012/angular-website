@@ -13,15 +13,16 @@ import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.co
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 
 const routes: Routes = [
-  { path: 'index', component: IndexPageComponent, data: {page: 'index'}},
-  { path: 'login', component: ArtistsProfilesComponent, data: {page: 'login'}},
-  { path: 'home', component: UserLoginDashboardComponent, data: {page: 'user'}},
-  { path: 'explore', component: ExploreComponentsComponent, data: {page: 'explore', artifacts: initialArtifacts} },
-  { path: 'explore/:id', component: EducationalResourcesComponent, data: {page: 'explore', artifacts: initialArtifacts, list: initialArtifacts, navActive: true} },
-  { path: 'bookmarks', component: AccessibilityFeaturesComponent, data: {page: 'bookmarks', artifacts: initialArtifacts} },
-  { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {page: 'bookmarks', artifacts: initialArtifacts, list: initialArtifacts, navActive: false} },
-  { path: 'community', component: CommunityForumComponent, data: {page: 'community'} },
-  { path: 'community-general', component: GeneralCommunityPageComponent, data: {page: 'community', communities: initialCommunities} },
+  { path: 'index', component: IndexPageComponent},
+  { path: 'login', component: ArtistsProfilesComponent},
+  { path: 'home', component: UserLoginDashboardComponent},
+  { path: 'explore', component: ExploreComponentsComponent},
+  { path: 'explore/search/:searchitem', component: ExploreComponentsComponent},
+  { path: 'explore/:id', component: EducationalResourcesComponent, data: {list: initialArtifacts, navActive: true} },
+  { path: 'bookmarks', component: AccessibilityFeaturesComponent},
+  { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {list: initialArtifacts, navActive: false} },
+  { path: 'community', component: CommunityForumComponent},
+  { path: 'community-general', component: GeneralCommunityPageComponent},
   { path: 'about', component: FeedbackAboutUsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', redirectTo: '/index' }

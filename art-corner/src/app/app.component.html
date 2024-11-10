@@ -30,8 +30,8 @@
               routerLinkActive="active">About</a>
           </li>
         </ul>
-        <form class="d-flex" role="search" (submit)="GetResults()">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" role="search" (submit)="GetResults(search.value)">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search>
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>

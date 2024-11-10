@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CreateExplore } from './data/CreateExplore';
 import { ArtifactsService } from './services/artifacts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,18 @@ import { ArtifactsService } from './services/artifacts.service';
 })
 export class AppComponent {
   artifacts: CreateExplore[] = [];
-  GetResults() {}
-
+  
   constructor(
-    private getArtifacts: ArtifactsService
+    private getArtifacts: ArtifactsService,
+    private router: Router
   ) {}
+
+  GetResults(searchItem: string) {
+    if(searchItem!=='')
+      this.router.navigate(['/explore/search',searchItem]);
+    else
+      this.router.navigate(['/explore']);
+  }
 
   ngOnInit(){
     this.artifacts = this.getArtifacts.getAll();

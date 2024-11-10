@@ -12,4 +12,11 @@ export class ArtifactsService {
   getAll(): CreateExplore[] {
     return initialArtifacts;
   }
+
+  getAllArtifactsBySearchTerm(searctItem: string) {
+    return this.getAll().filter(artifacts =>
+      artifacts.title.toLowerCase().includes(searctItem.toLowerCase()));
+
+  }
+
 }
