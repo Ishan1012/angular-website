@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { CreateExplore } from '../../data/CreateExplore';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-import { key } from '../../data/encryptionKey';
+import { key } from '../../shared/encryptionKey';
 import { ArtifactsService } from '../../services/artifacts.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-explore-components',
@@ -23,11 +24,16 @@ export class ExploreComponentsComponent {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
+      let artifactsObs: Observable<CreateExplore[]> = new Observable<CreateExplore[]>();
       if (params['searchitem'])
-        this.artifacts = this.getArtifacts.getAllArtifactsBySearchTerm(params['searchitem']);
+        artifactsObs = this.getArtifacts.getAllArtifactsBySearchTerm(params['searchitem']);
 
       if(this.artifacts.length === 0)
-        this.artifacts = this.getArtifacts.getAll();
+        artifactsObs = this.getArtifacts.getAll();
+
+      artifactsObs.subscribe((artifactsItems) => {
+        this.artifacts = artifactsItems;
+      })
     })
   }
 

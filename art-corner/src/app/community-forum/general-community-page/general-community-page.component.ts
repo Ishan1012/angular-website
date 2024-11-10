@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CreateCommunities } from '../../data/CreateCommunities';
 import { CommunitiesService } from '../../services/communities.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-community-page',
@@ -11,16 +12,22 @@ export class GeneralCommunityPageComponent {
   communities: CreateCommunities[] = [];
 
   constructor(
-    private getCommunities: CommunitiesService
-  ){
-
-  }
+    private getCommunities: CommunitiesService,
+    private router: Router
+  ){}
 
   ngOnInit(){
-    this.communities = this.getCommunities.getAll();
+    let communityObservable = this.getCommunities.getAll();
+    communityObservable.subscribe((communityItems) => {
+      this.communities = communityItems;
+    })
   }
 
   trackByFn(item: any) {
     return item.id;
+  }
+
+  OpenCommunityPage(item: CreateCommunities){
+    this.router.navigate(['/community/description',item.name]);
   }
 }

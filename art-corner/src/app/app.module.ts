@@ -14,6 +14,8 @@ import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.
 import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-dashboard/admin-login-dashboard.component';
+import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,16 @@ import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-das
     FeedbackAboutUsComponent,
     GeneralCommunityPageComponent,
     UserLoginDashboardComponent,
-    AdminLoginDashboardComponent
+    AdminLoginDashboardComponent,
+    CommunityDescriptionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

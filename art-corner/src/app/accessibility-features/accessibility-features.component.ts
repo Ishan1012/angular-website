@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CreateExplore } from '../data/CreateExplore';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-import { key } from '../data/encryptionKey';
+import { key } from '../shared/encryptionKey';
 import { ArtifactsService } from '../services/artifacts.service';
 
 @Component({
@@ -24,7 +24,10 @@ export class AccessibilityFeaturesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.artifacts = this.getArtifacts.getAll();
+    let artifactObservable = this.getArtifacts.getAll();
+    artifactObservable.subscribe((artifactItems) => {
+      this.artifacts = artifactItems;
+    })
     this.checkActive = this.checkActiveFav();
     this.bookmarks = this.checkBookmark();
   }

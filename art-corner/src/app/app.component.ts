@@ -24,6 +24,9 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.artifacts = this.getArtifacts.getAll();
+    let artifactObservable = this.getArtifacts.getAll();
+    artifactObservable.subscribe((artifactItems) => {
+      this.artifacts = artifactItems;
+    })
   }
 }

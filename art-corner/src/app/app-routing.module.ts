@@ -8,9 +8,9 @@ import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.
 import { initialArtifacts } from './data/initialArtifacts';
 import { EducationalResourcesComponent } from './educational-resources/educational-resources.component';
 import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
-import { initialCommunities } from './data/initialCommunities';
 import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.component';
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
+import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexPageComponent},
@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'bookmarks', component: AccessibilityFeaturesComponent},
   { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {list: initialArtifacts, navActive: false} },
   { path: 'community', component: CommunityForumComponent},
-  { path: 'community-general', component: GeneralCommunityPageComponent},
+  { path: 'community/description/:commid', component: CommunityDescriptionComponent},
+  { path: 'community/general-community', component: GeneralCommunityPageComponent},
   { path: 'about', component: FeedbackAboutUsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', redirectTo: '/index' }

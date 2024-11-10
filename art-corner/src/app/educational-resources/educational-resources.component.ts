@@ -2,7 +2,7 @@ import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/c
 import { CreateExplore } from '../data/CreateExplore';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-import { key } from '../data/encryptionKey';
+import { key } from '../shared/encryptionKey';
 import { isPlatformBrowser } from '@angular/common';
 import { ArtifactsService } from '../services/artifacts.service';
 
@@ -30,7 +30,10 @@ export class EducationalResourcesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.artifacts = this.getArtifacts.getAll();
+    let artifactObservable = this.getArtifacts.getAll();
+    artifactObservable.subscribe((artifactItems) => {
+      this.artifacts = artifactItems;
+    })
     this.activatedRoute.data.subscribe(data => {
       this.isActive = data['navActive'];
       if(this.list)
@@ -48,7 +51,10 @@ export class EducationalResourcesComponent implements OnInit {
         const bytes = CryptoJS.AES.decrypt(decodeId,key);
         const parseObj = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-        this.currentItem = this.artifacts.find(x => x.id == parseObj) || new CreateExplore();
+        let currentObservable = this.getArtifacts.getArtifactById(parseObj);
+        currentObservable.subscribe((currentItem) => {
+          this.currentItem = currentItem;
+        })
 
         const currentIndex = this.list.indexOf(this.currentItem);
         if(currentIndex !== -1)
