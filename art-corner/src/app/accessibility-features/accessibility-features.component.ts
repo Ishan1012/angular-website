@@ -17,7 +17,10 @@ export class AccessibilityFeaturesComponent implements OnInit {
   checkActive: boolean = false;
   bookmarks: CreateExplore[] = [];
 
-  constructor(private activaRoute: ActivatedRoute, private router: Router) {
+  constructor(
+    private activaRoute: ActivatedRoute, 
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {

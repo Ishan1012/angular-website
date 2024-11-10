@@ -1,4 +1,68 @@
-<input type="text" #email placeholder="Email">
-<input type="password" #password placeholder="Password">
-<button (click)="login(email.value, password.value)">Login</button>
-<button (click)="logout()">Signout</button>
+<div class="container-fluid d-flex justify-content-center align-items-center vh-80">
+    <div class="edit-container">
+        <!-- Hidden checkbox to trigger flip -->
+        <input type="checkbox" id="flip">
+        
+        <!-- The cover that will be flipped -->
+        <div class="cover">
+            
+            <!-- Front side of the container -->
+            <div class="front">
+                <img src="./img/login2.jpg" alt="">
+            </div>
+            
+            <!-- Back side of the container -->
+            <div class="back">
+                <img class="backImg" src="./img/login1.jpg" alt="">
+            </div>
+        </div>
+        
+        <!-- Login and Signup Forms -->
+        <form>
+            <div class="form-content">
+                <!-- Login Form -->
+                <div class="login-form">
+                    <div class="title">Sign in</div>
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="bi bi-envelope-at-fill"></i>
+                            <input type="text" #email placeholder="Enter Your E-mail">
+                        </div>
+                        <div class="input-box">
+                            <i class="bi bi-key-fill"></i>
+                            <input type="password" #password placeholder="Enter Your Password">
+                        </div>
+                        <div class="text"><a href="#">Forgot Password?</a></div>
+                        <div class="button input-box">
+                            <input type="submit" (click)="login(email.value, password.value)" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Don't have an account? <label for="flip">Create Account</label></div>
+                    </div>
+                </div>
+    
+                <!-- Signup Form -->
+                <div class="signup-form">
+                    <div class="title">Sign up</div>
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="bi bi-person-fill"></i>
+                            <input type="text" placeholder="Enter Your Name">
+                        </div>
+                        <div class="input-box">
+                            <i class="bi bi-envelope-at-fill"></i>
+                            <input type="text" placeholder="Enter Your E-mail">
+                        </div>
+                        <div class="input-box">
+                            <i class="bi bi-key-fill"></i>
+                            <input type="password" placeholder="Enter Your Password">
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Already have an account? <label for="flip">Login Now</label></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

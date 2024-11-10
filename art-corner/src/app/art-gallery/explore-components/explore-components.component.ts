@@ -18,11 +18,13 @@ export class ExploreComponentsComponent {
   constructor(private route: ActivatedRoute, private router: Router) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.route.data.subscribe(data => {
       this.artifacts = data['artifacts'];
       this.pages.pageNo = data['page'];
     });
+    this.pages = history.state.data;
+
   }
 
   trackByFn(item: any) {
@@ -38,15 +40,14 @@ export class ExploreComponentsComponent {
 
   readMore(item: any) {
     this.currentItem = item;
-    if(this.currentItem.id >= 0)
-    {
-      let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
+    if (this.currentItem.id >= 0) {
+      let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id), key).toString();
       let encodeId = encodeURIComponent(encrypted);
-      this.router.navigate(['/explore',encodeId]);
+      this.router.navigate(['/explore', encodeId]);
     }
   }
 
-  getId(item: any){
+  getId(item: any) {
     return item.id;
   }
 }

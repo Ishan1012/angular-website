@@ -1,3 +1,3 @@
 export class PagesContainer{
-    pageNo: string = '';
+    pageNo: string | null = '';
 }

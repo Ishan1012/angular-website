@@ -13,10 +13,9 @@ import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.co
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 
 const routes: Routes = [
-  { path: 'home', component: IndexPageComponent, data: {page: 'home', artifacts: initialArtifacts}},
   { path: 'index', component: IndexPageComponent, data: {page: 'index'}},
   { path: 'login', component: ArtistsProfilesComponent, data: {page: 'login'}},
-  { path: 'login/:userid', component: UserLoginDashboardComponent, data: {page: 'login'}},
+  { path: 'home', component: UserLoginDashboardComponent, data: {page: 'user'}},
   { path: 'explore', component: ExploreComponentsComponent, data: {page: 'explore', artifacts: initialArtifacts} },
   { path: 'explore/:id', component: EducationalResourcesComponent, data: {page: 'explore', artifacts: initialArtifacts, list: initialArtifacts, navActive: true} },
   { path: 'bookmarks', component: AccessibilityFeaturesComponent, data: {page: 'bookmarks', artifacts: initialArtifacts} },

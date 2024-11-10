@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,16 +7,15 @@ import { Router } from '@angular/router';
   styleUrl: './artists-profiles.component.css'
 })
 export class ArtistsProfilesComponent {
-  constructor(private authService: AuthService,private route: Router) {}
+  name: any;  
+
+  constructor(private route: Router) {}
 
   login(email: string, password: string) {
-    this.authService.signIn(email,password)
-    .then(result => this.route.navigate(['/login',result]))
-    .catch(error => console.log("Error logging in: ",error));
+    this.route.navigate(['/home']);
   }
 
   logout() {
-    this.authService.signOut()
-    .then(result => console.log("Signed Out!"));
+    this.route.navigate(['/login']);
   }
 }

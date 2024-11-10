@@ -1,0 +1,284 @@
+.vh-80{
+    min-height: 90vh;
+    background-color: #f0f0f0;
+}
+
+.edit-container
+{
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    background: #fff;
+    padding: 40px 30px;
+    box-shadow: 0.5px 10px rgba(0, 0, 0, 0.2),11px 0.5px rgba(0, 0, 0, 0.2);
+    perspective: 2700px;
+}
+.edit-container .cover
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    border: .5px rgba(0, 0, 0, 0.2);
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    backface-visibility: hidden; /* Added to hide back face on cover element */
+}
+
+.edit-container .cover::before,
+.edit-container .cover::after
+{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    z-index: 100;
+    backface-visibility: hidden; /* Added backface-visibility here */
+}
+.edit-container .cover::before
+{
+    background: #fff;
+}
+.edit-container .cover::after
+{
+    background: #fff;
+    transform: rotateY(180deg);
+    color: #f74706;
+}
+
+.edit-container #flip:checked ~ .cover
+{
+    transform: rotateY(-180deg); /* Flip to back when checkbox is checked */
+}
+
+.edit-container .cover img
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 12;
+    backface-visibility: hidden; /* Hide backface of image */
+    transform: rotateY(0deg);
+}
+
+.edit-container .cover .front,
+.edit-container .cover .back
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide backface of front and back */
+}
+
+.edit-container .cover .back
+{
+    transform: rotateY(180deg); /* Flip the back face */
+    color: navy;
+}
+
+.edit-container .cover .text
+{
+    position: absolute;
+    z-index: 111;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: navy;
+}
+
+.cover .text .text-1,
+.cover .text .text-2
+{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    backface-visibility: hidden; /* Hide backface of text */
+}
+
+.cover .text .text-2
+{
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(253, 6, 6);
+}
+.edit-container .form
+{
+    height: 100%;
+    width: 100%;
+    background: #FDF3B1;
+}
+
+.edit-container .form-content
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .signup-form
+{
+    width: calc(100% / 2 - 25px);
+}
+
+form .form-content .title
+{
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+}
+
+form .form-content .title:before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 20px;
+    background: #7d2ae8;
+}
+
+form .signup-form .title:before
+{
+    width: 20px;
+}
+
+.form .form-content .input-boxes
+{
+    margin-top: 30px;
+}
+
+form .form-content .input-box
+{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+.form-content .input-box input
+{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.form-content .input-box input:focus
+{
+    border-color: #402dd4;
+}
+
+.form-content .input-box i
+{
+    position: absolute;
+    color: #402dd4;
+    font-size: 17px;
+}
+
+form .form-content .text
+{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+form .form-content .text a
+{
+    text-decoration: none;
+}
+
+form .form-content .text a:hover
+{
+    text-decoration: underline;
+    color: red;
+}
+
+form .form-content .button
+{
+    color: #fff;
+    margin-top: 40px;
+}
+
+form .form-content .button input
+{
+    color: #fff;
+    background: #2a80e8;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form .form-content .button input:hover
+{
+    background: #6703e8;
+}
+
+form .form-content label
+{
+    color: #6404e2;
+    cursor: pointer;
+}
+
+form .form-content label:hover
+{
+    text-decoration: underline;
+    color: #f74706;
+}
+
+form .form-content .login-text,
+form .form-content .sign-up-text
+{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.edit-container #flip
+{
+    display: none;
+}
+
+@media (max-width: 730px)
+{
+    .edit-container .cover
+    {
+        display: none;
+    }
+    .form-content .login-form,
+    .form-content .signup-form
+    {
+        width: 100%;
+    }
+    .form-content .signup-form
+    {
+        display: none;
+    }
+    .edit-container #flip:checked ~ form .signup-form
+    {
+        display: block;
+    }
+    .edit-container #flip:checked ~ form .login-form
+    {
+        display: none;
+    }
+}

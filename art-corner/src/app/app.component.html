@@ -1,8 +1,8 @@
 <div>
   <nav class="navbar fixed-top bg-color navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" routerLink="/index" (click)="OpenPage('index')"><img src="./icon/logo-navbar2.png" alt=""
-          class="img-navbar-edit"></a>
+      <a class="navbar-brand" href="#" routerLink="/index" (click)="OpenPage('index')"><img
+          src="./icon/logo-navbar2.png" alt="" class="img-navbar-edit"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,24 +10,24 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-2">
-            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/home"
-              [ngClass]="{'active':pages.pageNo === 'home'}" href="#" (click)="OpenPage('home')">Home</a>
+            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/home" href="#"
+              routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/explore"
-              [ngClass]="{'active':pages.pageNo === 'explore'}" href="#" (click)="OpenPage('explore')">Explore</a>
+            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/explore" href="#"
+              routerLinkActive="active">Explore</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/bookmarks"
-              [ngClass]="{'active':pages.pageNo === 'bookmarks'}" href="#" (click)="OpenPage('bookmarks')">Bookmarks</a>
+            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/bookmarks" href="#"
+              routerLinkActive="active">Bookmarks</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/community"
-              [ngClass]="{'active':pages.pageNo === 'community'}" href="#" (click)="OpenPage('community')">Community</a>
+            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/community" href="#"
+              routerLinkActive="active">Community</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/about"
-              [ngClass]="{'active':pages.pageNo === 'about'}" href="#" (click)="OpenPage('about')">About</a>
+            <a class="nav-link btn btn-outline-warning" aria-current="page" routerLink="/about" href="#"
+              routerLinkActive="active">About</a>
           </li>
         </ul>
         <form class="d-flex" role="search" (submit)="GetResults()">

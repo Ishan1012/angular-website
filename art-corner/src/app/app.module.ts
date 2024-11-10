@@ -20,6 +20,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment.prod';
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-dashboard/admin-login-dashboard.component';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,13 @@ import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-das
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireAuthModule
+    AngularFirestoreModule
   ],
   providers: [
     provideClientHydration(),
     provideFirebaseApp(() => initializeApp({"projectId":"art-corner-ea8cb","appId":"1:37642620974:web:cbf53d5dd2f16161b34fbf","storageBucket":"art-corner-ea8cb.firebasestorage.app","apiKey":"AIzaSyCIa5AN2mekSI5-VFhl2PFfo7HjGkl6Yg0","authDomain":"art-corner-ea8cb.firebaseapp.com","messagingSenderId":"37642620974","measurementId":"G-8LW0ZS4LT8"})),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]
 })

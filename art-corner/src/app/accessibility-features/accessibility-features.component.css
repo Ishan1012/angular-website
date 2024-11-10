@@ -13,8 +13,9 @@ button{
     background-color: rgb(253, 67, 18);
     border: 1px solid rgb(253, 67, 18);
     border-radius: 10px;
-    height: 50px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
     font-size: larger;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
