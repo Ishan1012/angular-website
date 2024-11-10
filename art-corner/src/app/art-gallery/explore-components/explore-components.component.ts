@@ -23,7 +23,6 @@ export class ExploreComponentsComponent {
       this.artifacts = data['artifacts'];
       this.pages.pageNo = data['page'];
     });
-    this.pages = history.state.data;
 
   }
 
