@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PagesContainer } from '../../data/PagesContainer';
 
 @Component({
   selector: 'app-index-page',

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CreateExplore } from '../data/CreateExplore';
-import { PagesContainer } from '../data/PagesContainer';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../data/encryptionKey';
+import { ArtifactsService } from '../services/artifacts.service';
 
 @Component({
   selector: 'app-accessibility-features',
@@ -13,21 +13,18 @@ import { key } from '../data/encryptionKey';
 export class AccessibilityFeaturesComponent implements OnInit {
   artifacts: CreateExplore[] = [];
   currentItem: CreateExplore = new CreateExplore();
-  pages: PagesContainer = new PagesContainer();
   checkActive: boolean = false;
   bookmarks: CreateExplore[] = [];
 
   constructor(
     private activaRoute: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    private getArtifacts: ArtifactsService
   ) {
   }
 
   ngOnInit(): void {
-    this.activaRoute.data.subscribe(data => {
-      this.artifacts = data['artifacts'];
-      this.pages = data['page'];
-    });
+    this.artifacts = this.getArtifacts.getAll();
     this.checkActive = this.checkActiveFav();
     this.bookmarks = this.checkBookmark();
   }
@@ -40,10 +37,6 @@ export class AccessibilityFeaturesComponent implements OnInit {
         getBookmarks.push(this.artifacts[i]);
     }
     return getBookmarks;
-  }
-
-  OpenExplore() {
-    this.pages.pageNo = 'explore';
   }
 
   readMore(item: any) {

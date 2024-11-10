@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CreateCommunities } from '../../data/CreateCommunities';
+import { CommunitiesService } from '../../services/communities.service';
 
 @Component({
   selector: 'app-general-community-page',
@@ -10,14 +10,14 @@ import { CreateCommunities } from '../../data/CreateCommunities';
 export class GeneralCommunityPageComponent {
   communities: CreateCommunities[] = [];
 
-  constructor(private activeRoute: ActivatedRoute){
+  constructor(
+    private getCommunities: CommunitiesService
+  ){
 
   }
 
   ngOnInit(){
-    this.activeRoute.data.subscribe(data => {
-      this.communities = data['communities'];
-    });
+    this.communities = this.getCommunities.getAll();
   }
 
   trackByFn(item: any) {

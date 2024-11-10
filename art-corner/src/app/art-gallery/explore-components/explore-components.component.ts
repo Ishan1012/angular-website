@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PagesContainer } from '../../data/PagesContainer';
 import { CreateExplore } from '../../data/CreateExplore';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../../data/encryptionKey';
+import { ArtifactsService } from '../../services/artifacts.service';
 
 @Component({
   selector: 'app-explore-components',
@@ -11,19 +11,17 @@ import { key } from '../../data/encryptionKey';
   styleUrl: './explore-components.component.css'
 })
 export class ExploreComponentsComponent {
-  pages: PagesContainer = new PagesContainer;
   currentItem: CreateExplore = new CreateExplore();
   artifacts: CreateExplore[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private router: Router,
+    private getArtifacts: ArtifactsService
+  ) {
   }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.artifacts = data['artifacts'];
-      this.pages.pageNo = data['page'];
-    });
-
+    this.artifacts = this.getArtifacts.getAll();
   }
 
   trackByFn(item: any) {

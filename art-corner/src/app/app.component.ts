@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { CreateExplore } from './data/CreateExplore';
-import { PagesContainer } from './data/PagesContainer';
-import { initialArtifacts } from './data/initialArtifacts';
-import { ActivatedRoute } from '@angular/router';
+import { ArtifactsService } from './services/artifacts.service';
 
 @Component({
   selector: 'app-root',
@@ -13,25 +11,11 @@ export class AppComponent {
   artifacts: CreateExplore[] = [];
   GetResults() {}
 
-  pages: PagesContainer = new PagesContainer();
-
-  constructor(private route: ActivatedRoute) {
-    
-  }
+  constructor(
+    private getArtifacts: ArtifactsService
+  ) {}
 
   ngOnInit(){
-    this.artifacts = initialArtifacts;
-    this.route.data.subscribe(data =>{
-      this.pages.pageNo = data['page'];
-    })
-  }
-
-  OpenPage(page: string) {
-    this.pages.pageNo = page;
-  }
-
-  getPages()
-  {
-    return this.pages;
+    this.artifacts = this.getArtifacts.getAll();
   }
 }

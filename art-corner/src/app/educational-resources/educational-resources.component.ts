@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../data/encryptionKey';
 import { isPlatformBrowser } from '@angular/common';
+import { ArtifactsService } from '../services/artifacts.service';
 
 
 @Component({
@@ -20,12 +21,17 @@ export class EducationalResourcesComponent implements OnInit {
   getCurrentId: number = 0;
   isActive: boolean = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,@Inject(PLATFORM_ID) private platformId: any) {
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: any,
+    private getArtifacts: ArtifactsService
+  ) {
   }
 
   ngOnInit() {
+    this.artifacts = this.getArtifacts.getAll();
     this.activatedRoute.data.subscribe(data => {
-      this.artifacts = data['artifacts'];
       this.isActive = data['navActive'];
       if(this.list)
       this.list = data['list'];
