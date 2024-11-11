@@ -19,7 +19,7 @@ export class ArtistsProfilesComponent {
     private activatedRoute: ActivatedRoute,
     private route: Router,
     private fromBuilder: FormBuilder,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {

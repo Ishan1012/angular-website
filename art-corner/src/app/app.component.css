@@ -27,3 +27,31 @@ footer {
     text-decoration: none;
     color: #ffffff;
 }
+
+.edit-profile{
+    padding-left: 12px;
+}
+
+.edit-profile-img{
+    max-width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.dropdown-menu{
+    right: 10px;
+    display: block;
+}
+
+.edit-profile:hover .dropdown-menu{
+    display: block;
+}
+
+.edit-profile:active .dropdown-menu{
+    display: block;
+}
+
+.profile-dropdown .dropdown-menu {
+    display: none;
+    margin-top: 10px; /* Adjust if needed */
+  }

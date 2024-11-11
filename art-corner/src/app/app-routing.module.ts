@@ -16,7 +16,7 @@ import { ErrorPageComponent } from './accessibility-features/error-page/error-pa
 const routes: Routes = [
   { path: 'index', component: IndexPageComponent},
   { path: 'login', component: ArtistsProfilesComponent},
-  { path: 'home', component: UserLoginDashboardComponent},
+  { path: 'profile', component: UserLoginDashboardComponent},
   { path: 'explore', component: ExploreComponentsComponent},
   { path: 'explore/search/:searchitem', component: ExploreComponentsComponent},
   { path: 'explore/:id', component: EducationalResourcesComponent, data: {navActive: true} },
