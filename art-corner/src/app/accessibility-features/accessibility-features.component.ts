@@ -14,22 +14,21 @@ export class AccessibilityFeaturesComponent implements OnInit {
   artifacts: CreateExplore[] = [];
   currentItem: CreateExplore = new CreateExplore();
   checkActive: boolean = false;
-  bookmarks: CreateExplore[] = [];
+  bookmarks!: CreateExplore[];
 
   constructor(
     private activaRoute: ActivatedRoute, 
     private router: Router,
     private getArtifacts: ArtifactsService
-  ) {
-  }
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     let artifactObservable = this.getArtifacts.getAll();
     artifactObservable.subscribe((artifactItems) => {
       this.artifacts = artifactItems;
+      this.checkActive = this.checkActiveFav();
+      this.bookmarks = this.checkBookmark();
     })
-    this.checkActive = this.checkActiveFav();
-    this.bookmarks = this.checkBookmark();
   }
 
   checkBookmark(): CreateExplore[] {

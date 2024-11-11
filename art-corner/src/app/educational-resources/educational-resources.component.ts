@@ -13,10 +13,10 @@ import { ArtifactsService } from '../services/artifacts.service';
   styleUrl: './educational-resources.component.css'
 })
 export class EducationalResourcesComponent implements OnInit {
-  currentItem: CreateExplore = new CreateExplore;
+  currentItem: CreateExplore = new CreateExplore();
   recommend_list: CreateExplore[] = [];
   artifacts: CreateExplore[] = [];
-  list: CreateExplore[] = [];
+  list!: CreateExplore[];
   isFading: boolean = false;
   getCurrentId: number = 0;
   isActive: boolean = true;
@@ -26,23 +26,18 @@ export class EducationalResourcesComponent implements OnInit {
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: any,
     private getArtifacts: ArtifactsService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
-    let artifactObservable = this.getArtifacts.getAll();
-    artifactObservable.subscribe((artifactItems) => {
+    this.getArtifacts.getAll().subscribe((artifactItems) => {
       this.artifacts = artifactItems;
-    })
-    this.activatedRoute.data.subscribe(data => {
-      this.isActive = data['navActive'];
-      if(this.list)
-      this.list = data['list'];
+      this.list = this.artifacts;
+      this.recommend_list = this.getRecommendations(7);
     });
 
-    const navigation = this.router.getCurrentNavigation();
-    if(navigation?.extras.state)
-    this.list = navigation.extras.state['list'];
+    this.activatedRoute.data.subscribe(data => {
+      this.isActive = data['navActive'];
+    });
     
     const encodedID = this.activatedRoute.snapshot.paramMap.get('id');
     if(encodedID){
@@ -51,19 +46,15 @@ export class EducationalResourcesComponent implements OnInit {
         const bytes = CryptoJS.AES.decrypt(decodeId,key);
         const parseObj = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-        let currentObservable = this.getArtifacts.getArtifactById(parseObj);
-        currentObservable.subscribe((currentItem) => {
+        this.getArtifacts.getArtifactById(parseObj).subscribe((currentItem) => {
           this.currentItem = currentItem;
         })
-
-        const currentIndex = this.list.indexOf(this.currentItem);
-        if(currentIndex !== -1)
-          this.recommend_list = this.getRecommendations(currentIndex);
       }
       catch (error){
         console.error('Error decrypting object id: ',error);
       }
     }
+    
 
     this.scrollToTop();
   }
@@ -74,28 +65,37 @@ export class EducationalResourcesComponent implements OnInit {
     {
       if(event.key === 'ArrowLeft')
       {
-        this.moveBack(this.currentItem);
+        this.moveBack();
       }
       else
       {
-        this.moveNext(this.currentItem);
+        this.moveNext();
       }
     }
   }
 
-  getRecommendations(index: number): CreateExplore[]
-  {
-    let split_list;
-    if(index+9 >= this.artifacts.length)
-    {
-      split_list = this.artifacts.slice(0,8);
+  getRecommendations(index: number): CreateExplore[] {
+    // Step 1: Get a subset of items starting after the current item
+    const start = Math.max(0, index + 1);
+    const end = Math.min(this.artifacts.length, index + 9);
+  
+    const recommendations = this.artifacts.slice(start, end);
+  
+    // Step 2: Add extra items from the start of the list if fewer than 8 are available
+    if (recommendations.length < 8) {
+      const additionalItems = this.artifacts.slice(0, 8 - recommendations.length);
+      recommendations.push(...additionalItems);
     }
-    else
-    {
-      split_list = this.artifacts.slice(index+1,index+9);
+  
+    // Step 3: Shuffle the recommendations array
+    for (let i = recommendations.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [recommendations[i], recommendations[j]] = [recommendations[j], recommendations[i]];
     }
-    return split_list;
+  
+    return recommendations.slice(0, 8);  // Ensure we return exactly 8 items
   }
+  
 
   toggleLike(item: CreateExplore) {
     const index = this.list.indexOf(item);
@@ -104,8 +104,8 @@ export class EducationalResourcesComponent implements OnInit {
     }
   }
   
-  moveBack(item: CreateExplore) {
-    const index = this.list.indexOf(item);
+  moveBack() {
+    const index = this.currentItem.id - 1;
     if (index-1 > -1) {
       this.applyFadeEffect(() => this.currentItem = this.list[index-1]);
       const index2 = this.artifacts.indexOf(this.currentItem)-1;
@@ -126,8 +126,8 @@ export class EducationalResourcesComponent implements OnInit {
     }, 500);                            // Match delay with CSS transition duration
   }
 
-  moveNext(item: CreateExplore) {
-    const index = this.list.indexOf(item);
+  moveNext() {
+    const index = this.currentItem.id - 1;
     if (index+1 < this.list.length) {
       this.applyFadeEffect(() => this.currentItem = this.list[index+1]);
       const index2 = this.artifacts.indexOf(this.currentItem)+1;

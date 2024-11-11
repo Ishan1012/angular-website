@@ -1,7 +1,7 @@
 <div class="container text-center mx-auto container-edit">
     <div *ngIf="isActive" class="container container-space mt-3">
-        <a class="btn btn-danger button-edit" (click)="moveBack(currentItem)">Previous</a>
-        <a class="btn btn-danger button-edit" (click)="moveNext(currentItem)">Next</a>
+        <a class="btn btn-danger button-edit" (click)="moveBack()">Previous</a>
+        <a class="btn btn-danger button-edit" (click)="moveNext()">Next</a>
     </div>
     <br>
     <div class="title-image-wrapper d-flex align-items-center flex-column">
@@ -24,8 +24,8 @@
     <br>
     <p class="content-description">{{currentItem.desc}}</p>
     <br>
-    <hr>
-    <div>
+    <div *ngIf="recommend_list.length > 0">
+        <hr>
         <h1 class="text-start content-title view-more">View More</h1>
         <div class="row g-4 justify-content-center">
             <div *ngFor="let item of recommend_list; trackBy: trackByFn"

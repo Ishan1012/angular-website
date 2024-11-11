@@ -5,12 +5,12 @@ import { ExploreComponentsComponent } from './art-gallery/explore-components/exp
 import { AccessibilityFeaturesComponent } from './accessibility-features/accessibility-features.component';
 import { CommunityForumComponent } from './community-forum/community-forum.component';
 import { FeedbackAboutUsComponent } from './feedback-about-us/feedback-about-us.component';
-import { initialArtifacts } from './data/initialArtifacts';
 import { EducationalResourcesComponent } from './educational-resources/educational-resources.component';
 import { GeneralCommunityPageComponent } from './community-forum/general-community-page/general-community-page.component';
 import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.component';
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
+import { ArtifactsService } from './services/artifacts.service';
 
 const routes: Routes = [
   { path: 'index', component: IndexPageComponent},
@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'home', component: UserLoginDashboardComponent},
   { path: 'explore', component: ExploreComponentsComponent},
   { path: 'explore/search/:searchitem', component: ExploreComponentsComponent},
-  { path: 'explore/:id', component: EducationalResourcesComponent, data: {list: initialArtifacts, navActive: true} },
+  { path: 'explore/:id', component: EducationalResourcesComponent, data: {navActive: true} },
   { path: 'bookmarks', component: AccessibilityFeaturesComponent},
-  { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {list: initialArtifacts, navActive: false} },
+  { path: 'bookmarks/:id', component: EducationalResourcesComponent, data: {navActive: false} },
   { path: 'community', component: CommunityForumComponent},
   { path: 'community/description/:commid', component: CommunityDescriptionComponent},
   { path: 'community/general-community', component: GeneralCommunityPageComponent},

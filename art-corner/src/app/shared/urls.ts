@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:9919";
+const BASE_URL = "http://localhost:4269";
 
 export const ARITFACTS_URL = BASE_URL + "/api/artifacts";
 export const COMMUNITY_URL = BASE_URL + "/api/community";

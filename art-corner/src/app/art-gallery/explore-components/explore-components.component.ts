@@ -25,10 +25,9 @@ export class ExploreComponentsComponent {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {
       let artifactsObs: Observable<CreateExplore[]> = new Observable<CreateExplore[]>();
-      if (params['searchitem'])
+      if (params['searchitem'] && params['searchitem'].length !== 0)
         artifactsObs = this.getArtifacts.getAllArtifactsBySearchTerm(params['searchitem']);
-
-      if(this.artifacts.length === 0)
+      else
         artifactsObs = this.getArtifacts.getAll();
 
       artifactsObs.subscribe((artifactsItems) => {

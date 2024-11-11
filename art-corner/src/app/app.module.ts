@@ -16,6 +16,7 @@ import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashb
 import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-dashboard/admin-login-dashboard.component';
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideHttpClient(withFetch()),
