@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-artists-profiles',
@@ -12,10 +13,13 @@ export class ArtistsProfilesComponent {
   signupForm!: FormGroup;
   isSubmitted = false;
   showLogin = true;
+  returnUrl = '';
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private route: Router,
-    private fromBuilder: FormBuilder
+    private fromBuilder: FormBuilder,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
@@ -27,7 +31,9 @@ export class ArtistsProfilesComponent {
       name: ['',[Validators.required,Validators.maxLength(50)]],
       email: ['', [Validators.required,Validators.email]],
       password: ['', Validators.required]
-    })
+    });
+
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
   }
 
   get fc(){
@@ -37,6 +43,13 @@ export class ArtistsProfilesComponent {
   submit(){
     this.isSubmitted = true;
     if(this.loginForm.invalid) return;
+
+    this.userService.login({email: this.fc['email'].value,
+      password: this.fc['password'].value
+    }).subscribe(()=>{
+      console.log('submit');
+      this.route.navigateByUrl(this.returnUrl);
+    })
   }
 
   toggleForm() {

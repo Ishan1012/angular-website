@@ -18,6 +18,8 @@ import { CommunityDescriptionComponent } from './community-forum/community-descr
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,15 @@ import { ErrorPageComponent } from './accessibility-features/error-page/error-pa
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      newestOnTop: false
+    })
   ],
   providers: [
     provideHttpClient(withFetch()),

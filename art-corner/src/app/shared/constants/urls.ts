@@ -6,3 +6,6 @@ export const ARITFACTS_BY_ID_URL = ARITFACTS_URL + "/";
 export const COMMUNITY_BY_ID_URL = COMMUNITY_URL + "/";
 export const ARITFACTS_BY_SEARCH_URL = ARITFACTS_URL + "/search/";
 export const COMMUNITY_BY_SEARCH_URL = COMMUNITY_URL + "/search/";
+
+
+export const USER_LOGIN_URL = BASE_URL + "/api/user/login";
