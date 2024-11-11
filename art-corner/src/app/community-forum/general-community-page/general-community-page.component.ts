@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CreateCommunities } from '../../data/CreateCommunities';
+import { CreateCommunities } from '../../shared/model/CreateCommunities';
 import { CommunitiesService } from '../../services/communities.service';
 import { Router } from '@angular/router';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CreateCommunities } from '../data/CreateCommunities';
+import { CreateCommunities } from '../shared/model/CreateCommunities';
 import { HttpClient } from '@angular/common/http';
-import { COMMUNITY_BY_ID_URL, COMMUNITY_BY_SEARCH_URL, COMMUNITY_URL } from '../shared/urls';
+import { COMMUNITY_BY_ID_URL, COMMUNITY_BY_SEARCH_URL, COMMUNITY_URL } from '../shared/constants/urls';
 import { Observable } from 'rxjs';
 
 

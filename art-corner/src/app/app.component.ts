@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CreateExplore } from './data/CreateExplore';
+import { CreateExplore } from './shared/model/CreateExplore';
 import { ArtifactsService } from './services/artifacts.service';
 import { Router } from '@angular/router';
 

@@ -11,6 +11,7 @@ import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.co
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
 import { ArtifactsService } from './services/artifacts.service';
+import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexPageComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'community/general-community', component: GeneralCommunityPageComponent},
   { path: 'about', component: FeedbackAboutUsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '**', redirectTo: '/index' }
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({

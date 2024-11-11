@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CreateExplore } from '../data/CreateExplore';
+import { CreateExplore } from '../shared/model/CreateExplore';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-import { key } from '../shared/encryptionKey';
+import { key } from '../shared/constants/encryptionKey';
 import { ArtifactsService } from '../services/artifacts.service';
 
 @Component({

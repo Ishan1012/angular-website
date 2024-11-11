@@ -1,8 +1,8 @@
 import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { CreateExplore } from '../data/CreateExplore';
+import { CreateExplore } from '../shared/model/CreateExplore';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-import { key } from '../shared/encryptionKey';
+import { key } from '../shared/constants/encryptionKey';
 import { isPlatformBrowser } from '@angular/common';
 import { ArtifactsService } from '../services/artifacts.service';
 

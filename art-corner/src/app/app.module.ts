@@ -17,6 +17,7 @@ import { AdminLoginDashboardComponent } from './artists-profiles/admin-login-das
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ReactiveFormsModule} from '@angular/forms';
+import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     GeneralCommunityPageComponent,
     UserLoginDashboardComponent,
     AdminLoginDashboardComponent,
-    CommunityDescriptionComponent
+    CommunityDescriptionComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
