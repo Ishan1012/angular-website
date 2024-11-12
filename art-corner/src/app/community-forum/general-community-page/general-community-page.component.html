@@ -1,21 +1,22 @@
-<div class="container-fluid">
-    <br>
-    <h1 class="text-center">Inspire & Collaborate</h1>
-    <br>
-    <div class="row g-4 justify-content-center">
-      <div *ngFor="let item of communities; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body text-center">
-              <img src="./img/cover.jpg" alt="">
-              <h5 class="card-title">{{item.name}}</h5>
-              <p class="card-text">{{item.desc}}</p>
-              <div class="edit-btn">
-                  <div (click)="OpenCommunityPage(item)" class="btn btn-outline-primary">Join</div>
-                  <div class="btn btn-outline-primary">Visit</div>
-              </div>
-            </div>
+<div class="container-fluid text-center">
+  <br>
+  <h1 class="text-center">Inspire & Collaborate</h1>
+  <br>
+  <div class="row g-4 justify-content-center align-items-center">
+    <div *ngFor="let item of communities; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
+      <div class="card edit-card" style="width: 18rem;">
+        <div class="card-body text-center mb-3">
+          <img [src]="item.img" alt="">
+          <h5 class="card-title mt-3 mb-3">{{item.name}}</h5>
+          <p class="card-text mb-4">{{getSummary(item.desc)}}</p>
+          <div class="edit-btn">
+            <div (click)="JoinCommunity(item)" class="btn btn-outline-primary">Join</div>
+            <div (click)="OpenCommunityPage(item)" class="btn btn-outline-primary">Visit</div>
           </div>
+        </div>
       </div>
     </div>
   </div>
-  <br><br>
+</div>
+<br><br>
+

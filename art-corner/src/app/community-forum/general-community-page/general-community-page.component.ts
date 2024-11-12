@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CreateCommunities } from '../../shared/model/CreateCommunities';
 import { CommunitiesService } from '../../services/communities.service';
 import { Router } from '@angular/router';
+import { key } from '../../shared/constants/encryptionKey';
 
 @Component({
   selector: 'app-general-community-page',
@@ -10,13 +11,14 @@ import { Router } from '@angular/router';
 })
 export class GeneralCommunityPageComponent {
   communities: CreateCommunities[] = [];
+  currentItem!: CreateCommunities;
 
   constructor(
     private getCommunities: CommunitiesService,
     private router: Router
-  ){}
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     let communityObservable = this.getCommunities.getAll();
     communityObservable.subscribe((communityItems) => {
       this.communities = communityItems;
@@ -27,7 +29,15 @@ export class GeneralCommunityPageComponent {
     return item.id;
   }
 
-  OpenCommunityPage(item: CreateCommunities){
-    this.router.navigate(['/community/description',item.name]);
+  getSummary(description: string): string{
+    return description.substring(0,218);
+  }
+
+  OpenCommunityPage(item: CreateCommunities) {
+    this.router.navigate(['/community/description', JSON.stringify(item)]);
+  }
+
+  JoinCommunity(item: CreateCommunities) {
+
   }
 }

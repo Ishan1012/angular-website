@@ -1,0 +1,20 @@
+.edit-container {
+    padding-top: 50px;
+    min-height: 50vh;
+}
+
+.img-container img {
+    width: 30vh;
+    aspect-ratio: 1/1;
+    border: 10px solid #333;
+    border-radius: 50%;
+}
+
+.edit-text {
+    padding-top: 20px;
+    font-size: 2em;
+}
+
+.edit-description{
+
+}

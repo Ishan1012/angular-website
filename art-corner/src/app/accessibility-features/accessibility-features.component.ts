@@ -44,7 +44,7 @@ export class AccessibilityFeaturesComponent implements OnInit {
       this.activaRoute.data.subscribe(data => {
         data['list'] = this.bookmarks;
       });
-      this.router.navigate(['/bookmarks', encodeId], {state: {list: this.bookmarks}});
+      this.router.navigate(['/bookmarks', encodeId]);
     }
   }
 

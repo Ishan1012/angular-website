@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CreateCommunities } from '../../shared/model/CreateCommunities';
+import { key } from '../../shared/constants/encryptionKey';
 
 @Component({
   selector: 'app-community-description',
@@ -6,8 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './community-description.component.css'
 })
 export class CommunityDescriptionComponent {
+  user!: CreateCommunities;
 
   constructor(
+    private activeRoute: ActivatedRoute
+  ) {
+    const item = this.activeRoute.snapshot.paramMap.get('commid');
+    this.user = JSON.parse(item || '') as CreateCommunities;
+  }
 
-  ) {}
+  
 }
