@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Bookmarks } from '../shared/model/Bookmarks';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CreateExplore } from '../shared/model/CreateExplore';
 import { CreateBookmarks } from '../shared/model/CreateBookmarks';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,15 @@ export class BookmarkService {
   private bookmarks: Bookmarks = this.getBookmarksFromLocalStorage();
   private bookmarkSubject: BehaviorSubject<Bookmarks> = new BehaviorSubject(this.bookmarks);
 
-  constructor() { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any
+  ) { }
 
   addToBookmarks(item: CreateExplore): void{
     let bookmarkItem = this.bookmarks.items
     .find(bookmarkedItem => bookmarkedItem.artifacts.id === item.id);
     
-    if(!bookmarkItem)
+    if(bookmarkItem)
       return;
 
     this.bookmarks.items.push(new CreateBookmarks(item));
@@ -44,15 +47,18 @@ export class BookmarkService {
 
   private setBookmarkToLocalStorage():void{
     this.bookmarks.totalCount = this.bookmarks.items
-    .reduce((prevSum, currentItem) => prevSum + 1,0);
+    .reduce((prevSum, _currentItem) => prevSum + 1,0);
 
     const bookmarksJson = JSON.stringify(this.bookmarks);
-    localStorage.setItem('Bookmarks', bookmarksJson);
+    if(isPlatformBrowser(this.platformId))
+      localStorage.setItem('Bookmarks', bookmarksJson);
     this.bookmarkSubject.next(this.bookmarks);
   }
 
   private getBookmarksFromLocalStorage():Bookmarks{
-    const bookmarkJson = localStorage.getItem('Bookmarks');
+    let bookmarkJson;
+    if(isPlatformBrowser(this.platformId))
+      bookmarkJson = localStorage.getItem('Bookmarks');
 
     return bookmarkJson? JSON.parse(bookmarkJson): new Bookmarks();
   }

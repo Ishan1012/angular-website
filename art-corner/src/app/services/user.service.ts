@@ -34,8 +34,8 @@ export class UserService {
             'Login Successful'
           )
         },
-        error: (errorResponse) => {
-          this.userSubject.error(errorResponse.error);
+        error: () => {
+          this.toastrService.error('Given Username or Password is not Valid', 'Login Failed');
         }
       })
     );

@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { key } from '../shared/constants/encryptionKey';
 import { ArtifactsService } from '../services/artifacts.service';
+import { BookmarkService } from '../services/bookmark.service';
+import { Bookmarks } from '../shared/model/Bookmarks';
 
 @Component({
   selector: 'app-accessibility-features',
@@ -14,12 +16,13 @@ export class AccessibilityFeaturesComponent implements OnInit {
   artifacts: CreateExplore[] = [];
   currentItem: CreateExplore = new CreateExplore();
   checkActive: boolean = false;
-  bookmarks!: CreateExplore[];
+  bookmarks!: Bookmarks;
 
   constructor(
     private activaRoute: ActivatedRoute, 
     private router: Router,
-    private getArtifacts: ArtifactsService
+    private getArtifacts: ArtifactsService,
+    private bookmarkService: BookmarkService
   ) {}
 
   ngOnInit() {
@@ -27,18 +30,10 @@ export class AccessibilityFeaturesComponent implements OnInit {
     artifactObservable.subscribe((artifactItems) => {
       this.artifacts = artifactItems;
       this.checkActive = this.checkActiveFav();
-      this.bookmarks = this.checkBookmark();
     })
-  }
-
-  checkBookmark(): CreateExplore[] {
-    const getBookmarks = [];
-    for (let i = 0; i < this.artifacts.length; i++) {
-      const element = this.artifacts[i];
-      if (element.bookmark)
-        getBookmarks.push(this.artifacts[i]);
-    }
-    return getBookmarks;
+    this.bookmarkService.getBookmarkObservable().subscribe((bookmark) => {
+      this.bookmarks = bookmark;
+    })
   }
 
   readMore(item: any) {
@@ -54,14 +49,7 @@ export class AccessibilityFeaturesComponent implements OnInit {
   }
 
   checkActiveFav(): boolean {
-    this.checkActive = this.artifacts.some((artifact) => {
-      if (artifact.bookmark) {
-        return true; // Bookmark is active
-      }
-      return false; // No active bookmark
-    });
-
-    return this.checkActive;
+    return (this.bookmarks.items.length > 0)?true:false;
   }
 
   toggleBookmark(item: CreateExplore) {

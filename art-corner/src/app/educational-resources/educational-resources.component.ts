@@ -5,6 +5,8 @@ import * as CryptoJS from 'crypto-js';
 import { key } from '../shared/constants/encryptionKey';
 import { isPlatformBrowser } from '@angular/common';
 import { ArtifactsService } from '../services/artifacts.service';
+import { BookmarkService } from '../services/bookmark.service';
+import { Bookmarks } from '../shared/model/Bookmarks';
 
 
 @Component({
@@ -16,24 +18,33 @@ export class EducationalResourcesComponent implements OnInit {
   currentItem: CreateExplore = new CreateExplore();
   recommend_list: CreateExplore[] = [];
   artifacts: CreateExplore[] = [];
-  list!: CreateExplore[];
+  list!: Bookmarks;
   isFading: boolean = false;
   getCurrentId: number = 0;
   isActive: boolean = true;
+  bookmarkActive!: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: any,
-    private getArtifacts: ArtifactsService
+    private getArtifacts: ArtifactsService,
+    private bookmarkService: BookmarkService
   ) {}
 
   ngOnInit() {
     this.getArtifacts.getAll().subscribe((artifactItems) => {
       this.artifacts = artifactItems;
-      this.list = this.artifacts;
       this.recommend_list = this.getRecommendations(7);
     });
+
+    this.bookmarkService.getBookmarkObservable().subscribe((bookmark) => {
+      this.list = bookmark;
+      if(this.list.items.length > 0)
+        this.bookmarkActive = false;
+      else
+        this.bookmarkActive = true;
+    })
 
     this.activatedRoute.data.subscribe(data => {
       this.isActive = data['navActive'];
@@ -98,16 +109,13 @@ export class EducationalResourcesComponent implements OnInit {
   
 
   toggleLike(item: CreateExplore) {
-    const index = this.list.indexOf(item);
-    if (index !== -1) {
-      this.list[index].like = !this.list[index].like;
-    }
+    
   }
   
   moveBack() {
     const index = this.currentItem.id - 1;
     if (index-1 > -1) {
-      this.applyFadeEffect(() => this.currentItem = this.list[index-1]);
+      this.applyFadeEffect(() => this.currentItem = this.artifacts[index-1]);
       const index2 = this.artifacts.indexOf(this.currentItem)-1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
       let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
@@ -128,8 +136,8 @@ export class EducationalResourcesComponent implements OnInit {
 
   moveNext() {
     const index = this.currentItem.id - 1;
-    if (index+1 < this.list.length) {
-      this.applyFadeEffect(() => this.currentItem = this.list[index+1]);
+    if (index+1 < this.list.items.length) {
+      this.applyFadeEffect(() => this.currentItem = this.artifacts[index+1]);
       const index2 = this.artifacts.indexOf(this.currentItem)+1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
       let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();

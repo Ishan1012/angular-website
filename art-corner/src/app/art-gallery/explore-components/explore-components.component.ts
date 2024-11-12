@@ -5,6 +5,8 @@ import * as CryptoJS from 'crypto-js';
 import { key } from '../../shared/constants/encryptionKey';
 import { ArtifactsService } from '../../services/artifacts.service';
 import { Observable } from 'rxjs';
+import { BookmarkService } from '../../services/bookmark.service';
+import { Bookmarks } from '../../shared/model/Bookmarks';
 
 @Component({
   selector: 'app-explore-components',
@@ -14,11 +16,13 @@ import { Observable } from 'rxjs';
 export class ExploreComponentsComponent {
   currentItem: CreateExplore = new CreateExplore();
   artifacts: CreateExplore[] = [];
+  bookmarks!: Bookmarks;
 
   constructor(
     private router: Router,
     private getArtifacts: ArtifactsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private bookmarkService: BookmarkService
   ) {
   }
 
@@ -34,6 +38,9 @@ export class ExploreComponentsComponent {
         this.artifacts = artifactsItems;
       })
     })
+    this.bookmarkService.getBookmarkObservable().subscribe((bookItem) => {
+      this.bookmarks = bookItem;
+    })
   }
 
   trackByFn(item: any) {
@@ -44,6 +51,12 @@ export class ExploreComponentsComponent {
     const index = this.artifacts.indexOf(item);
     if (index !== -1) {
       this.artifacts[index].bookmark = !this.artifacts[index].bookmark;
+    }
+    if(this.artifacts[index].bookmark){
+      this.bookmarkService.addToBookmarks(item);
+    }
+    else {
+      this.bookmarkService.removeBookmark(item.id);
     }
   }
 
