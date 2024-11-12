@@ -1,1 +1,53 @@
-<p>user-login-dashboard works!</p>
+<div class="container-fluid">
+    <div class="container edit-container">
+        <div class="img-container text-center">
+            <img [src]="user.img" alt="">
+        </div>
+        <div class="container text-center edit-text">
+            <h1>{{user.name}}</h1>
+        </div>
+    </div>
+    <div class="container vh-100">
+        <hr>
+        <h1 class="mt-5 mb-5">Add Articles</h1>
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="card p-3 shadow-sm" style="width: 90vw; border-radius: 12px;">
+                <!-- Header with Profile Picture and Text Area -->
+                <div class="d-flex align-items-start mb-3">
+                    <img [src]="user.img" alt="Profile Picture" class="rounded-circle me-2"
+                        style="width: 50px; height: 50px; object-fit: cover;">
+                    <textarea class="form-control border-0" placeholder="What would you like to talk about?" rows="15"
+                        style="resize: none;"></textarea>
+                </div>
+    
+                <!-- Footer with Action Buttons and Post Button -->
+                <div class="d-flex justify-content-between align-items-centern gap-5">
+                    <!-- Action Buttons -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <i class="bi bi-image text-primary fs-3"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <i class="bi bi-file-earmark-text text-info fs-3"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <i class="bi bi-link-45deg text-warning fs-3"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <i class="bi bi-person-plus text-danger fs-3"></i>
+                        </button>
+                    </div>
+                    <!-- Post Button -->
+                    <button class="btn btn-primary rounded-pill px-4">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 text-center">
+        <a (click)="logout()" class="btn btn-danger">Logout</a>
+    </div>
+</div>

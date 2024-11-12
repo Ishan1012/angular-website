@@ -5,9 +5,9 @@
     <div class="row g-4 justify-content-center">
       <div *ngFor="let item of communities; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
         <div class="card" style="width: 18rem;">
-            <div class="card-body">
+            <div class="card-body text-center">
+              <img src="./img/cover.jpg" alt="">
               <h5 class="card-title">{{item.name}}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
               <p class="card-text">{{item.desc}}</p>
               <div class="edit-btn">
                   <div (click)="OpenCommunityPage(item)" class="btn btn-outline-primary">Join</div>
