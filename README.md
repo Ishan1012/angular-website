@@ -148,7 +148,7 @@ For any questions or contributions, feel free to contact:
 - ## Team Members
 
 1. **Ishan Dwivedi** - DevOps Engineer - Angular Framework
-2. **Gaurav Singh** - Fullstack Engineer
+2. **Gaurav Singh** - MongoDB Engineer
 3. **Kaushiki Jaiswal** - UI/UX Designer
 4. **Gaurav Yadav** - Frontend Developer
 5. **Kartik Kushwaha** - Frontend Engineer
