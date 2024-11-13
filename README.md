@@ -135,6 +135,9 @@ npm install -g @angular/cli
 2. **Gallery Section**: Add a dedicated gallery section where users can upload and manage their artwork.
 3. **Advanced Search**: Improve the search functionality to include filters by categories, tags, or artists.
 4. **Social Media Integration**: Enable sharing of artwork on social media platforms directly from the site.
+5. **Community Integration**: Enable joining of communities on this platforms and interacting with more people of same interests.
+6. **News Section**: Implemented a notification system to give time to time updates and announce newer challenges and competitions.
+7. **Feedback Section**: Improve the performance and visibility of our site by taking a short feedback from our users.
 
 ---
 
@@ -145,7 +148,7 @@ For any questions or contributions, feel free to contact:
 - ## Team Members
 
 1. **Ishan Dwivedi** - DevOps Engineer - Angular Framework
-2. **Gaurav Singh** - MongoDB Engineer
+2. **Gaurav Singh** - Fullstack Engineer
 3. **Kaushiki Jaiswal** - UI/UX Designer
 4. **Gaurav Yadav** - Frontend Developer
 5. **Kartik Kushwaha** - Frontend Engineer
