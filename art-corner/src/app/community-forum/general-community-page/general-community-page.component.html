@@ -8,7 +8,7 @@
         <div class="card-body text-center mb-3">
           <img [src]="item.img" alt="">
           <h5 class="card-title mt-3 mb-3">{{item.name}}</h5>
-          <p class="card-text mb-4">{{getSummary(item.desc)}}</p>
+          <p class="edit-card-text card-text mb-4">{{getSummary(item.desc)}}</p>
           <div class="edit-btn">
             <div (click)="JoinCommunity(item)" class="btn btn-outline-primary">Join</div>
             <div (click)="OpenCommunityPage(item)" class="btn btn-outline-primary">Visit</div>

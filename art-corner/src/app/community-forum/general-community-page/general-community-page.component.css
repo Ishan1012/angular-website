@@ -12,3 +12,7 @@
 .edit-card{
     border-radius: 20px;
 }
+
+.edit-card-text {
+    text-justify: newspaper;
+}

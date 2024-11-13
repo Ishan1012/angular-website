@@ -18,7 +18,7 @@ export const sample_users: any[] = [
         email: "ishandwivedi@gmail.com",
         password: "Ishan@123",
         isAdmin: false,
-        img: "./profiles/profile7.png"
+        img: "./profiles/profile22.png"
     },
     {
         name: "Gaurav Singh",
