@@ -28,31 +28,42 @@ footer {
     color: #ffffff;
 }
 
-.edit-profile{
+.edit-profile {
     padding-left: 12px;
 }
 
-.edit-profile-img{
+.edit-profile-img {
     max-width: 2.7rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     right: 0;
     top: 33px;
     display: block;
 }
 
-.edit-profile:hover .dropdown-menu{
+.edit-profile:hover .dropdown-menu {
     display: block;
 }
 
-.edit-profile:active .dropdown-menu{
+.edit-profile:active .dropdown-menu {
     display: block;
 }
 
 .profile-dropdown .dropdown-menu {
     display: none;
-    margin-top: 10px; /* Adjust if needed */
-  }
+    margin-top: 10px;
+    /* Adjust if needed */
+}
+
+.edit-icon {
+    color: rgb(255, 157, 0);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.edit-icon:hover{
+    transform: scale(1.2);
+}

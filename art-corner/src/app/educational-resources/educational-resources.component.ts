@@ -109,7 +109,7 @@ export class EducationalResourcesComponent implements OnInit {
   
 
   toggleLike(item: CreateExplore) {
-    
+    item.like = !item.like;
   }
   
   moveBack() {
@@ -136,7 +136,7 @@ export class EducationalResourcesComponent implements OnInit {
 
   moveNext() {
     const index = this.currentItem.id - 1;
-    if (index+1 < this.list.items.length) {
+    if (index+1 < this.artifacts.length) {
       this.applyFadeEffect(() => this.currentItem = this.artifacts[index+1]);
       const index2 = this.artifacts.indexOf(this.currentItem)+1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));

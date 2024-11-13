@@ -23,16 +23,17 @@ export class AccessibilityFeaturesComponent implements OnInit {
     private router: Router,
     private getArtifacts: ArtifactsService,
     private bookmarkService: BookmarkService
-  ) {}
+  ) {
+    this.bookmarkService.getBookmarkObservable().subscribe((bookmark) => {
+      this.bookmarks = bookmark;
+    })
+  }
 
   ngOnInit() {
     let artifactObservable = this.getArtifacts.getAll();
     artifactObservable.subscribe((artifactItems) => {
       this.artifacts = artifactItems;
       this.checkActive = this.checkActiveFav();
-    })
-    this.bookmarkService.getBookmarkObservable().subscribe((bookmark) => {
-      this.bookmarks = bookmark;
     })
   }
 
@@ -55,8 +56,9 @@ export class AccessibilityFeaturesComponent implements OnInit {
   toggleBookmark(item: CreateExplore) {
     const index = this.artifacts.indexOf(item);
     if (index !== -1) {
-      this.artifacts[index].bookmark = !this.artifacts[index].bookmark;
+      this.bookmarks.items[index].artifacts.bookmark = !this.bookmarks.items[index].artifacts.bookmark;
     }
+    this.bookmarkService.removeBookmark(item.id);
   }
 
   trackByFn(item: any) {

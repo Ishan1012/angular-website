@@ -1,0 +1,186 @@
+.rotate {
+    color: rgb(147, 51, 234);
+    border: 1px solid rgb(183, 82, 233);
+    padding: 8px 20px;
+    transform: rotate(340deg);
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+#about {
+    width: 100%;
+    padding: 5% 10%;
+    background-color: #fff;
+}
+
+#about h2 {
+    font-size: 3rem;
+    margin: 10px;
+}
+
+#about .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#about .services .service {
+    margin: 15px;
+    border: 2px solid #000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--primary-color);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#about .services .service:hover {
+    box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.7);
+}
+
+#about .services .service h3 {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+#about .services .service p {
+    color: var(--secondary-color);
+    line-height: 30px;
+}
+
+#about .services .service .icon {
+    background: yellow;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about .services .service .icon i {
+    font-size: 20px;
+}
+
+#contect {
+    width: 100%;
+    padding: 5% 10%;
+    background: rgb(235, 219, 211);
+}
+
+#contect h2 {
+    font-size: 3rem;
+}
+
+#contect .contect-details {
+    display: flex;
+    gap: 40px;
+}
+
+#contect form {
+    border: 2px solid black;
+    flex: 50%;
+    padding: 30px;
+    margin: 20px 0;
+    background-color: white;
+}
+
+#contect .details {
+    flex: 50%;
+}
+
+#contect .content-details h3 {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+#contect .content-details h6 {
+    font-size: 20px;
+    columns: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+#contect form input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    width: 10px 0;
+    border: 2px solid black;
+}
+
+#contect form .name-email {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+#contect form .name-box {
+    flex: 50%;
+}
+
+#contect form .Email-box {
+    flex: 50%;
+}
+
+#contect form label {
+    display: block;
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#contect form button {
+    margin-top: 20px;
+    background: yellow;
+    border: none;
+    padding: 13px 20px;
+}
+
+#contect form button a{
+    text-decoration: none;
+}
+
+#contect form button:hover {
+    background: #000;
+}
+
+#contect form button:hover a{
+    color: #fff;
+}
+
+#contect .details {
+    flex: 50%;
+    margin: 20px 0;
+}
+
+#contect .detail-box {
+    display: flex;
+    margin: 30px;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#contect .detail-box .box {
+    padding-top: 30px;
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+#contect .detail-box .box:nth-child(1) {
+    border-top: none !important;
+}
+
+#contect .detail-box .icon {
+    background: var(--third-color);
+    padding: 15px 16px;
+    border-radius: 50%;
+}
+
+#contect .detail-box h5 {
+    font-size: 18px;
+}
+
+#contect .detail-box h4 {
+    font-size: 23px;
+}

@@ -57,9 +57,10 @@ export class BookmarkService {
 
   private getBookmarksFromLocalStorage():Bookmarks{
     let bookmarkJson;
-    if(isPlatformBrowser(this.platformId))
+    if(typeof window !== 'undefined') {
       bookmarkJson = localStorage.getItem('Bookmarks');
-
+    }
+    
     return bookmarkJson? JSON.parse(bookmarkJson): new Bookmarks();
   }
 }
