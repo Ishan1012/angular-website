@@ -1,3 +1,60 @@
+#header{
+    width: 100%;
+    padding: 10%;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+#header .content{
+    flex: 50%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#header h1{
+    font-size: 5.1rem;
+    font-weight: 400;
+    line-height: 90px;
+    margin-bottom: 20px;
+}
+#header p{
+    color: #888383;
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 20px;
+}
+#header button{
+    padding: 13px 30px;
+    border: 0;
+    background-color: rgb(147,51,234);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#header button a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+#header button:hover{
+    background-color: #f00;
+}
+
+#header img{
+    flex: 50%;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)) 1;
+    transition: transform 1s ease-in-out;
+}
+
+#header img:hover{
+    transform: translateX(30px);
+}
+
 .rotate {
     color: rgb(147, 51, 234);
     border: 1px solid rgb(183, 82, 233);
@@ -10,7 +67,7 @@
 #about {
     width: 100%;
     padding: 5% 10%;
-    background-color: #fff;
+    background-color: rgb(238, 237, 173);
 }
 
 #about h2 {
