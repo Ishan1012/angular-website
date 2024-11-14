@@ -1,18 +1,76 @@
-.edit-btn{
+.edit-btn {
     display: flex;
     justify-content: space-between;
 }
 
-.card-body img{
+.card-body img {
     width: 4rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
 
-.edit-card{
+.edit-card {
     border-radius: 20px;
 }
 
 .edit-card-text {
     text-justify: newspaper;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: all .3s ease;
+}
+
+.edit-card-case {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.content:hover a {
+    border-color: white;
+    background: white;
+}
+
+.content-1:hover {
+    border-color: #860732;
+    background: #860732;
+}
+
+.content-1:hover a {
+    color: #1DA1F2;
+}
+
+.content:hover .btn{
+    color: #fff;
+    border-color: #fff;
+}
+
+.content:hover .btn:hover{
+    background: #fff;
+    color: #000;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-card-case {
+    width: 100%;
+    max-width: 1200px;
+    /* Adjust based on your design */
+    margin: auto;
 }

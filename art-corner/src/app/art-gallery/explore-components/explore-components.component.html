@@ -2,22 +2,24 @@
   <br>
   <h1 class="text-center">Art Gallery</h1>
   <br>
-  <div class="row g-4 justify-content-center">
-    <div *ngFor="let item of artifacts; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
-      <div class="card text-center h-100" style="overflow: hidden;">
-        <img [src]="item.img" loading="lazy" class="card-img-top img-fit" alt="Image">
-        <div class="card-body edit-card-body">
-          <h5 class="card-title">{{item.title}}</h5>
-          <div class="btn-styles text-end fw-normal">
-            <a class="btn btn-outline-primary" (click)="readMore(item)">Preview</a>
-            <a *ngIf="item.bookmark; else unlikeTemplate" class="btn btn-outline-warning" (click)="toggleLike(item)">
-              <i class="bi bi-bookmark-fill"></i>
-            </a>
-            <ng-template #unlikeTemplate>
-              <a class="btn btn-outline-warning" (click)="toggleLike(item)">
-                <i class="bi bi-bookmark"></i>
+  <div class="edit-container">
+    <div class="row g-4 d-flex justify-content-center">
+      <div *ngFor="let item of artifacts; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
+        <div class="card text-center h-100" style="overflow: hidden;">
+          <img [src]="item.img" loading="lazy" class="card-img-top img-fit" alt="Image" (click)="readMore(item)">
+          <div class="card-body edit-card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <div class="btn-styles text-end fw-normal">
+              <a class="btn btn-outline-primary" (click)="readMore(item)">Preview</a>
+              <a *ngIf="item.bookmark; else unlikeTemplate" class="btn btn-outline-warning" (click)="toggleLike(item)">
+                <i class="bi bi-bookmark-fill"></i>
               </a>
-            </ng-template>
+              <ng-template #unlikeTemplate>
+                <a class="btn btn-outline-warning" (click)="toggleLike(item)">
+                  <i class="bi bi-bookmark"></i>
+                </a>
+              </ng-template>
+            </div>
           </div>
         </div>
       </div>
