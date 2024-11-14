@@ -6,6 +6,8 @@ import { key } from '../shared/constants/encryptionKey';
 import { ArtifactsService } from '../services/artifacts.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { Bookmarks } from '../shared/model/Bookmarks';
+import { UserService } from '../services/user.service';
+import { User } from '../shared/model/User';
 
 @Component({
   selector: 'app-accessibility-features',
@@ -17,12 +19,14 @@ export class AccessibilityFeaturesComponent implements OnInit {
   currentItem: CreateExplore = new CreateExplore();
   checkActive: boolean = false;
   bookmarks!: Bookmarks;
+  user!: User;
 
   constructor(
     private activaRoute: ActivatedRoute, 
     private router: Router,
     private getArtifacts: ArtifactsService,
-    private bookmarkService: BookmarkService
+    private bookmarkService: BookmarkService,
+    private userService: UserService
   ) {
     this.bookmarkService.getBookmarkObservable().subscribe((bookmark) => {
       this.bookmarks = bookmark;
@@ -34,6 +38,9 @@ export class AccessibilityFeaturesComponent implements OnInit {
     artifactObservable.subscribe((artifactItems) => {
       this.artifacts = artifactItems;
       this.checkActive = this.checkActiveFav();
+    })
+    this.userService.userObservable.subscribe((user) => {
+      this.user = user;
     })
   }
 
