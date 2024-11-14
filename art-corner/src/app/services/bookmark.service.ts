@@ -38,6 +38,13 @@ export class BookmarkService {
     .find(item => item.artifacts.id === itemId);
 
     if(!artifactBookmarked) return;
+
+    this.setBookmarkToLocalStorage();
+  }
+
+  clearBookmarks(){
+    this.bookmarks = new Bookmarks();
+    
     this.setBookmarkToLocalStorage();
   }
 

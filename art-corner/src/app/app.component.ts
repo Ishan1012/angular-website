@@ -4,6 +4,7 @@ import { ArtifactsService } from './services/artifacts.service';
 import { Router } from '@angular/router';
 import { User } from './shared/model/User';
 import { UserService } from './services/user.service';
+import { BookmarkService } from './services/bookmark.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
   
   constructor(
     private getArtifacts: ArtifactsService,
+    private getBookmarks: BookmarkService,
     private router: Router,
     private userService: UserService,
   ) {
@@ -26,6 +28,7 @@ export class AppComponent {
   }
   
   logout(){
+    this.getBookmarks.clearBookmarks();
     this.userService.logout();
   }
 

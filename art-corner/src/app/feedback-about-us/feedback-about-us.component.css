@@ -192,10 +192,16 @@ textarea {
     background: yellow;
     border: none;
     padding: 13px 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 #contect form button a{
     text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.send-edit a{
+    color: #000;
 }
 
 #contect form button:hover {

@@ -38,6 +38,6 @@ export class GeneralCommunityPageComponent {
   }
 
   JoinCommunity(item: CreateCommunities) {
-
+    
   }
 }

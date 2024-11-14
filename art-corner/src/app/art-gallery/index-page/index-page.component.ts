@@ -26,7 +26,6 @@ export class IndexPageComponent {
     this.getCommunity.getAll().subscribe((items) => {
       this.communities = items;
     })
-    console.log(this.communities);
   }
 
   redirect(): void{

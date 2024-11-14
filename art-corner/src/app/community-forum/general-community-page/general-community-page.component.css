@@ -49,6 +49,10 @@
     background: #860732;
 }
 
+.content img{
+    transition: all 0.3s ease-in-out;
+}
+
 .content:hover img{
     border-color: #fff;
     background-color: #fff;
