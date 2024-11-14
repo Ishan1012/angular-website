@@ -38,7 +38,7 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="navbar-brand edit-profile">
-          <div *ngIf="!user.token; else profileImage">
+          <div *ngIf="!user.id; else profileImage">
             <a routerLink="/login"><i class="bi bi-person-circle fs-3 text-secondary"></i></a>
           </div>
           <ng-template #profileImage>

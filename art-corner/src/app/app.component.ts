@@ -24,6 +24,7 @@ export class AppComponent {
   ) {
     this.userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
+      console.log(newUser);
     })
   }
   

@@ -8,7 +8,7 @@ import communityRouter from './routers/community.router';
 import userRouter from './routers/user.router';
 import { dbConnect } from './configs/database.config';
 
-// dbConnect();
+dbConnect();
 
 const port = 4269;
 

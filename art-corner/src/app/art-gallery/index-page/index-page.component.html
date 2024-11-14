@@ -6,7 +6,7 @@
             <p>A <strong>Responsive Portfolio</strong> Web Application</p>
 
             <div class="contact-section">
-                <div *ngIf="!user.token; else explore">
+                <div *ngIf="!user.id; else explore">
                     <button class="btncontact" (click)="redirect()">Sign In</button>
                 </div>
                 <ng-template #explore>

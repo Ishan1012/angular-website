@@ -1,22 +1,43 @@
 import { Router } from "express";
 import { initialArtifacts } from "../initialArtifacts";
+import asyncHandler from 'express-async-handler';
+import { CreateExploreModel } from "../models/CreateExplore.model";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send(initialArtifacts);
-})
+router.get("/seed", asyncHandler(
+    async (req, res) => {
+        const artifactsCount = await CreateExploreModel.countDocuments();
+        if(artifactsCount>0){
+            res.send("Seed is already done!");
+            return;
+        }
 
-router.get("/:artifactid", (req, res) => {
-    const artifactid = req.params.artifactid;
-    const item = initialArtifacts.find(artifact => artifact.id == artifactid);
-    res.send(item);
-})
+        await CreateExploreModel.create(initialArtifacts);
+        res.send("Seed is Done!");
+    }
+))
 
-router.get("/search/:searchTerm", (req,res) => {
-    const searchTerm = req.params.searchTerm;
-    const artifacts = initialArtifacts.filter(artifact => artifact.title.toLowerCase().includes(searchTerm.toLowerCase()));
-    res.send(artifacts);
-})
+router.get("/",asyncHandler(
+    async (req,res) => {
+        const artifacts = await CreateExploreModel.find();
+        res.send(artifacts);
+    }
+))
+
+router.get("/:artifactid", asyncHandler(
+    async (req, res) => {
+        const item = await CreateExploreModel.findById(req.params.artifactid);
+        res.send(item);
+    }
+))
+
+router.get("/search/:searchTerm", asyncHandler(
+    async (req,res) => {
+        const searchRegex = new RegExp(req.params.searchTerm, 'i');
+        const artifacts = await CreateExploreModel.find({title: {$regex: searchRegex}})
+        res.send(artifacts);
+    }
+))
 
 export default router;

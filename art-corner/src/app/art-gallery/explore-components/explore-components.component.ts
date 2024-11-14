@@ -60,13 +60,9 @@ export class ExploreComponentsComponent {
     }
   }
 
-  readMore(item: any) {
+  readMore(item: CreateExplore) {
     this.currentItem = item;
-    if (this.currentItem.id >= 0) {
-      let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id), key).toString();
-      let encodeId = encodeURIComponent(encrypted);
-      this.router.navigate(['/explore', encodeId]);
-    }
+    this.router.navigate(['/explore', this.currentItem.id]);
   }
 
   getId(item: any) {

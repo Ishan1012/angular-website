@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { BookmarkService } from '../services/bookmark.service';
 
 @Component({
   selector: 'app-artists-profiles',
@@ -19,7 +20,8 @@ export class ArtistsProfilesComponent {
     private activatedRoute: ActivatedRoute,
     private route: Router,
     private fromBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private getBookmarks: BookmarkService
   ) {}
 
   ngOnInit() {
@@ -50,6 +52,7 @@ export class ArtistsProfilesComponent {
       console.log('submit');
       this.route.navigateByUrl(this.returnUrl);
     })
+    this.getBookmarks.clearBookmarks();
   }
 
   toggleForm() {

@@ -27,13 +27,13 @@ export class BookmarkService {
     this.setBookmarkToLocalStorage();
   }
 
-  removeBookmark(itemId: number):void {
+  removeBookmark(itemId: string):void {
     this.bookmarks.items = this.bookmarks.items
     .filter(item => item.artifacts.id != itemId);
     this.setBookmarkToLocalStorage();
   }
 
-  changeQuantity(itemId: number):void {
+  changeQuantity(itemId: string):void {
     let artifactBookmarked = this.bookmarks.items
     .find(item => item.artifacts.id === itemId);
 

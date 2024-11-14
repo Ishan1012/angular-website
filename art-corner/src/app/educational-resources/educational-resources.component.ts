@@ -53,19 +53,15 @@ export class EducationalResourcesComponent implements OnInit {
     const encodedID = this.activatedRoute.snapshot.paramMap.get('id');
     if(encodedID){
       try{
-        const decodeId = decodeURIComponent(encodedID);
-        const bytes = CryptoJS.AES.decrypt(decodeId,key);
-        const parseObj = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-
-        this.getArtifacts.getArtifactById(parseObj).subscribe((currentItem) => {
+        this.getArtifacts.getArtifactById(encodedID).subscribe((currentItem) => {
           this.currentItem = currentItem;
+          console.log(currentItem);
         })
       }
       catch (error){
         console.error('Error decrypting object id: ',error);
       }
     }
-    
 
     this.scrollToTop();
   }
@@ -113,14 +109,14 @@ export class EducationalResourcesComponent implements OnInit {
   }
   
   moveBack() {
-    const index = this.currentItem.id - 1;
+    const index = this.currentItem.index - 1;
+    
     if (index-1 > -1) {
       this.applyFadeEffect(() => this.currentItem = this.artifacts[index-1]);
+      console.log(this.currentItem);
       const index2 = this.artifacts.indexOf(this.currentItem)-1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-      let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
-      let encodeId = encodeURIComponent(encrypted);
-      this.router.navigate(['/explore',encodeId]);
+      this.router.navigate(['/explore',this.currentItem.id]);
     }
   }
 
@@ -135,14 +131,13 @@ export class EducationalResourcesComponent implements OnInit {
   }
 
   moveNext() {
-    const index = this.currentItem.id - 1;
+    const index = this.currentItem.index - 1;
+    
     if (index+1 < this.artifacts.length) {
       this.applyFadeEffect(() => this.currentItem = this.artifacts[index+1]);
       const index2 = this.artifacts.indexOf(this.currentItem)+1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-      let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
-      let encodeId = encodeURIComponent(encrypted);
-      this.router.navigate(['/explore',encodeId]);
+      this.router.navigate(['/explore',this.currentItem.id]);
     }
   }
 
@@ -164,8 +159,6 @@ export class EducationalResourcesComponent implements OnInit {
     const index2 = this.artifacts.indexOf(this.currentItem);
     this.scrollToTop();
     this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-    let encrypted = CryptoJS.AES.encrypt(JSON.stringify(this.currentItem.id),key).toString();
-    let encodeId = encodeURIComponent(encrypted);
-    this.router.navigate(['/explore',encodeId]);
+    this.router.navigate(['/explore',this.currentItem.id]);
   }
 }

@@ -21,7 +21,8 @@ export class ArtifactsService {
     return this.http.get<CreateExplore[]>(ARITFACTS_BY_SEARCH_URL + searchItem)
   }
 
-  getArtifactById(itemid: number): Observable<CreateExplore>{
+  getArtifactById(itemid: string): Observable<CreateExplore>{
+    console.log(itemid);
     return this.http.get<CreateExplore>(ARITFACTS_BY_ID_URL + itemid);
   }
 }

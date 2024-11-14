@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CreateCommunities } from '../../shared/model/CreateCommunities';
-import { key } from '../../shared/constants/encryptionKey';
 
 @Component({
   selector: 'app-community-description',

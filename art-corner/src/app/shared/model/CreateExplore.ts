@@ -1,6 +1,6 @@
 export class CreateExplore{
-    [x: string]: any;
-    id: number = -1;
+    id!: string;
+    index!: number;
     title: string = "";
     desc: string = "";
     img: string = "";
