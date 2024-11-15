@@ -29,7 +29,7 @@ export class IndexPageComponent {
   }
 
   redirect(): void{
-    if(!this.user.token)
+    if(!this.user.id)
       this.router.navigate(['/login']);
     else
       this.router.navigate(['/explore']);

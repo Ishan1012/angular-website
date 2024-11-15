@@ -63,6 +63,10 @@ export class EducationalResourcesComponent implements OnInit {
       try{
         this.getArtifacts.getArtifactById(encodedID).subscribe((currentItem) => {
           this.currentItem = currentItem;
+
+          if(currentItem === null){
+            this.router.navigate(['error404']);
+          }
         })
       }
       catch (error){
