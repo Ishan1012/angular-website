@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { initialArtifacts } from "../initialArtifacts";
 import asyncHandler from 'express-async-handler';
-import { CreateExploreModel } from "../models/CreateExplore.model";
+import { CreateExploreModel } from "../models/createExplore.model";
 
 const router = Router();
 

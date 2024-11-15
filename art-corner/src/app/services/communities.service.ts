@@ -22,7 +22,7 @@ export class CommunitiesService {
     return this.http.get<CreateCommunities[]>(COMMUNITY_BY_SEARCH_URL + searchItem)
   }
 
-  getArtifactById(itemid: number): Observable<CreateCommunities> {
-    return this.http.get<CreateCommunities>(COMMUNITY_BY_ID_URL);
+  getCommunityById(itemid: string): Observable<CreateCommunities> {
+    return this.http.get<CreateCommunities>(COMMUNITY_BY_ID_URL + itemid);
   }
 }
