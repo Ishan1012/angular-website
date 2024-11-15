@@ -7,6 +7,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { ArtifactsService } from '../services/artifacts.service';
 import { BookmarkService } from '../services/bookmark.service';
 import { Bookmarks } from '../shared/model/Bookmarks';
+import { UserService } from '../services/user.service';
+import { User } from '../shared/model/User';
 
 
 @Component({
@@ -23,16 +25,22 @@ export class EducationalResourcesComponent implements OnInit {
   getCurrentId: number = 0;
   isActive: boolean = true;
   bookmarkActive!: boolean;
+  iscopy: boolean = false;
+  user!: User;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: any,
     private getArtifacts: ArtifactsService,
-    private bookmarkService: BookmarkService
+    private bookmarkService: BookmarkService,
+    private getUser: UserService
   ) {}
 
   ngOnInit() {
+    this.getUser.userObservable.subscribe((item) => {
+      this.user = item;
+    })
     this.getArtifacts.getAll().subscribe((artifactItems) => {
       this.artifacts = artifactItems;
       this.recommend_list = this.getRecommendations(7);
@@ -55,7 +63,6 @@ export class EducationalResourcesComponent implements OnInit {
       try{
         this.getArtifacts.getArtifactById(encodedID).subscribe((currentItem) => {
           this.currentItem = currentItem;
-          console.log(currentItem);
         })
       }
       catch (error){
@@ -113,7 +120,7 @@ export class EducationalResourcesComponent implements OnInit {
     
     if (index-1 > -1) {
       this.applyFadeEffect(() => this.currentItem = this.artifacts[index-1]);
-      console.log(this.currentItem);
+      
       const index2 = this.artifacts.indexOf(this.currentItem)-1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
       this.router.navigate(['/explore',this.currentItem.id]);
@@ -160,5 +167,22 @@ export class EducationalResourcesComponent implements OnInit {
     this.scrollToTop();
     this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
     this.router.navigate(['/explore',this.currentItem.id]);
+  }
+
+  copyToClipboard(): void {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      this.iscopy = true;
+      setTimeout(() => {
+        this.iscopy = false;
+      }, 5000);
+
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+
+  activeDownload(): boolean{
+    return this.user.id?true:false;
   }
 }

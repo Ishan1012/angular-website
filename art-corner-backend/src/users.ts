@@ -7,13 +7,6 @@ export const sample_users: any[] = [
         img: "./profiles/profile1.png"
     },
     {
-        name: "abc",
-        email: "def@gmail.com",
-        password: "696969",
-        isAdmin: false,
-        img: "./profiles/profile2.png"
-    },
-    {
         name: "Ishan Dwivedi",
         email: "ishandwivedi@gmail.com",
         password: "Ishan@123",

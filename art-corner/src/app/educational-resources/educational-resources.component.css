@@ -78,6 +78,7 @@
     gap: 1.5rem;
     font-size: 1.25rem;
     color: rgb(192, 6, 96);
+    transition: all 0.3s ease-in-out;
 }
 
 .icon-bar i {
