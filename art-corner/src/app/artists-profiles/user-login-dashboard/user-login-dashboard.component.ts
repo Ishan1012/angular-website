@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { User } from '../../shared/model/User';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-user-login-dashboard',
@@ -13,13 +14,27 @@ export class UserLoginDashboardComponent {
 
   constructor(
     private userServices: UserService,
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {
     this.userServices.userObservable.subscribe((user) => {
       this.user = user;
     });
     if(!this.user.id)
       this.router.navigate(['/index']);
+  }
+
+  ngOnInit() {
+    this.scrollToTop();
+  }
+
+  scrollToTop() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 
   logout(){
