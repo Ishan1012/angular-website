@@ -179,7 +179,7 @@ export class EducationalResourcesComponent implements OnInit {
       this.iscopy = true;
       setTimeout(() => {
         this.iscopy = false;
-      }, 5000);
+      }, 3000);
 
     }).catch(err => {
       console.error('Failed to copy: ', err);

@@ -18,7 +18,7 @@
         </div>
 
         <!-- Login and Signup Forms -->
-        <form [formGroup]="showLogin ? loginForm : signupForm" (submit)="showLogin ? submit() : signup()">
+        <form [formGroup]="showLogin ? loginForm : signupForm" (submit)="submit()">
             <div class="form-content">
                 <!-- Login Form -->
                 <div class="login-form">
@@ -26,11 +26,7 @@
                     <div class="input-boxes">
                         <div class="input-box">
                             <i class="bi bi-envelope-at-fill"></i>
-                            <input type="text" formControlName="email" placeholder="Enter Your E-mail">
-                            <!-- <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-                                <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
-                                <small *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</small>
-                            </div> -->
+                            <input type="text"  formControlName="email" placeholder="Enter Your E-mail">
                         </div>
                         <div class="input-box">
                             <i class="bi bi-key-fill"></i>
@@ -61,10 +57,15 @@
                             <i class="bi bi-key-fill"></i>
                             <input type="password" formControlName="password" placeholder="Enter Your Password">
                         </div>
+                        <div class="input-box">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            <input type="password" formControlName="confirmPassword" placeholder="Confirm Your Password">
+                        </div>
                         <div class="button input-box">
                             <input type="submit" value="Submit">
                         </div>
-                        <div class="text sign-up-text">Already have an account? <label for="flip">Login Now</label>
+                        <div class="text sign-up-text">Already have an account? <label (click)="toggleForm()"
+                            for="flip">Login Now</label>
                         </div>
                     </div>
                 </div>
