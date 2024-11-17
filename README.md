@@ -82,7 +82,21 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 
 ---
 
-## **Sample Video**
+## **Sample Videos**
+
+  ![Project Screenshot](screenshots/gif1.gif)
+
+  ![Project Screenshot](screenshots/gif2.gif)
+
+  ![Project Screenshot](screenshots/gif3.gif)
+
+  ![Project Screenshot](screenshots/gif4.gif)
+
+  ![Project Screenshot](screenshots/gif5.gif)
+
+  ![Project Screenshot](screenshots/gif6.gif)
+
+  ![Project Screenshot](screenshots/gif7.gif)
 
 ---
 
