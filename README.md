@@ -123,7 +123,6 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 - ![Express](https://img.shields.io/badge/Express.js-black?logo=express&logoColor=white) `express`
 - ![dotenv](https://img.shields.io/badge/dotenv-green?logo=dotenv&logoColor=white) `dotenv`
 - ![Express Async Handler](https://img.shields.io/badge/Express--Async--Handler-grey?logo=express&logoColor=white) `express-async-handler`
-- ![jsonwebtoken](https://img.shields.io/badge/JSON-Web-Token-yellow?logo=json&logoColor=white) `jsonwebtoken`
 
 ### **Framework**
 
