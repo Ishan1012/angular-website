@@ -45,48 +45,81 @@ This application is structured as a **Single Page Application (SPA)** using Angu
   
   ![Project Screenshot](screenshots/Beige%20Minimalist%20Timeline%20Diagram%20Graph.png)
 
-- **Index.html**: The root HTML file that loads the Angular application. It includes the base href, metadata, and an app-root directive to load the main Angular component.
-  ```html
-  <app-root></app-root>
+- **Art Gallery**: Explore a curated collection of breathtaking artworks, ranging from classic to contemporary styles. The gallery showcases diverse mediums like paintings, sculptures, and digital art to inspire art lovers.
+  ```ts
+  { path: 'index', component: IndexPageComponent }
   ```
-  ![Project Screenshot](screenshots/Screenshot%202024-10-21%20232050.png)
 
-- **Explore Page**: The primary Angular component that manages the layout, including the navigation bar and content sections.
-  ```html
-  <nav class="navbar fixed-top bg-light navbar-expand-lg">
-    <!-- Navbar content with links to Home, Explore, Favourites, About, and Contact Us -->
-  </nav>
-  <div class="contents container-fluid">
-    <app-index-page></app-index-page>
-  </div>
+- **Educational Resources**: Dive into a wealth of tutorials, guides, and tips to help artists enhance their skills. Whether you're a beginner or a pro, there's something here for every creative mind.
+  ```ts
+  { path: 'explore', component: ExploreComponentsComponent }
   ```
-  ![Project Screenshot](screenshots/Screenshot%202024-10-21%20232056.png)
 
-- **Content Page**: The primary Angular component that manages the layout, including the navigation bar and content sections.
-  ```html
-  <nav class="navbar fixed-top bg-light navbar-expand-lg">
-    <!-- Navbar content with links to Home, Explore, Favourites, About, and Contact Us -->
-  </nav>
-  <div class="contents container-fluid">
-    <app-educational-resources-page></app-educational-resources-page>
-  </div>
+- **Artists Profiles**: Connect with talented artists by exploring their detailed profiles, featuring bios, portfolios, and personal journeys. Get inspired by their stories and support their creative endeavors.
+  ```ts
+  { path: 'profile', component: UserLoginDashboardComponent }
   ```
-  ![Project Screenshot](screenshots/Screenshot%202024-10-29%20120431.png)
 
-  ![Project Screenshot](screenshots/Screenshot%202024-10-29%20120439.png)
-
-  ![Project Screenshot](screenshots/Screenshot%202024-10-29%20120959.png)
-
-- **Favourites Page**: The primary Angular component that manages the layout, including the navigation bar and content sections.
-  ```html
-  <nav class="navbar fixed-top bg-light navbar-expand-lg">
-    <!-- Navbar content with links to Home, Explore, Favourites, About, and Contact Us -->
-  </nav>
-  <div class="contents container-fluid">
-    <app-accessibility-features-page></app-accessibility-features-page>
-  </div>
+- **Blog / News Section**: Stay updated with the latest trends, news, and insights from the art world. Discover in-depth articles, interviews, and features that celebrate creativity.
+  ```ts
+  { path: 'news', component: BlogNewsSectionComponent }
   ```
-  ![Project Screenshot](screenshots/Screenshot%202024-10-22%20192353.png)
+
+- **Community Forum**: Join a thriving space where art enthusiasts and creators can exchange ideas, seek feedback, and discuss all things art. Build meaningful connections with like-minded individuals.
+  ```ts
+  { path: 'community', component: CommunityForumComponent }
+  ```
+
+- **Accessibility Features**: Experience a platform designed for everyone, with tools like screen readers, text scaling, and alternative text for images. Inclusivity is at the heart of this creative space.
+  ```ts
+  { path: 'bookmarks', component: AccessibilityFeaturesComponent }
+  ```
+
+- **Feedback / About Us**: Learn more about our mission to celebrate creativity and connect artists worldwide. Share your thoughts and suggestions to help us grow and serve you better.
+  ```ts
+  { path: 'about', component: FeedbackAboutUsComponent }
+  ```
+
+---
+
+## **Sample Video**
+
+---
+
+## **Project Depandencies**
+
+### **Frontend Depandencies**
+
+- ![Angular Animations](https://img.shields.io/badge/Angular-Animations-red?logo=angular&logoColor=white) `@angular/animations`
+- ![Angular Common](https://img.shields.io/badge/Angular-Common-red?logo=angular&logoColor=white) `@angular/common`
+- ![Angular Compiler](https://img.shields.io/badge/Angular-Compiler-red?logo=angular&logoColor=white) `@angular/compiler`
+- ![Angular Core](https://img.shields.io/badge/Angular-Core-red?logo=angular&logoColor=white) `@angular/core`
+- ![Angular Forms](https://img.shields.io/badge/Angular-Forms-red?logo=angular&logoColor=white) `@angular/forms`
+- ![Angular Router](https://img.shields.io/badge/Angular-Router-red?logo=angular&logoColor=white) `@angular/router`
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap&logoColor=white) `bootstrap`
+- ![Bootstrap Icons](https://img.shields.io/badge/Bootstrap-Icons-purple?logo=bootstrap&logoColor=white) `bootstrap-icons`
+- ![NGX Toastr](https://img.shields.io/badge/NGX-Toastr-orange?logo=javascript&logoColor=white) `ngx-toastr`
+- ![RxJS](https://img.shields.io/badge/RxJS-pink?logo=reactivex&logoColor=white) `rxjs`
+- ![Zone.js](https://img.shields.io/badge/Zone.js-blue?logo=javascript&logoColor=white) `zone.js`
+
+### **Backend Depandencies**
+
+- ![CORS](https://img.shields.io/badge/CORS-blue?logo=express&logoColor=white) `cors`
+- ![Crypto JS](https://img.shields.io/badge/CryptoJS-darkgreen?logo=lock&logoColor=white) `crypto-js`
+- ![Express](https://img.shields.io/badge/Express.js-black?logo=express&logoColor=white) `express`
+- ![dotenv](https://img.shields.io/badge/dotenv-green?logo=dotenv&logoColor=white) `dotenv`
+- ![Express Async Handler](https://img.shields.io/badge/Express--Async--Handler-grey?logo=express&logoColor=white) `express-async-handler`
+- ![jsonwebtoken](https://img.shields.io/badge/JSON-Web-Token-yellow?logo=json&logoColor=white) `jsonwebtoken`
+
+### **Framework**
+
+- ![Angular](https://img.shields.io/badge/Angular-Fire-red?logo=angular&logoColor=white) `@angular/fire`
+- ![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript&logoColor=white) `typescript`
+- ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) `@types/node`
+
+### **Database**
+
+- ![MongoDB](https://img.shields.io/badge/MongoDB-darkgreen?logo=mongodb&logoColor=white)
 
 ---
 
@@ -129,15 +162,19 @@ npm install -g @angular/cli
 
 ---
 
-## **Future Enhancements**
+## **Featured Categories**
 
-1. **User Authentication**: Implement user login and registration features for personalized portfolios.
-2. **Gallery Section**: Add a dedicated gallery section where users can upload and manage their artwork.
-3. **Advanced Search**: Improve the search functionality to include filters by categories, tags, or artists.
-4. **Social Media Integration**: Enable sharing of artwork on social media platforms directly from the site.
-5. **Community Integration**: Enable joining of communities on this platforms and interacting with more people of same interests.
-6. **News Section**: Implemented a notification system to give time to time updates and announce newer challenges and competitions.
-7. **Feedback Section**: Improve the performance and visibility of our site by taking a short feedback from our users.
+1. **Paintings**: Explore a vibrant collection of artworks ranging from traditional oil and watercolor to modern acrylic masterpieces. Dive into themes like portraits, landscapes, and abstract expressions.
+
+2. **Digital Art**: Discover cutting-edge creations that merge technology with artistry, featuring stunning illustrations, 3D designs, and pixel art. A realm where imagination meets innovation.
+
+3. **Photography**: Capture the world through the lens with breathtaking shots of nature, urban landscapes, portraits, and more. Each photo tells a story, freezing moments in time.
+
+4. **Sculptures**: Admire the beauty of three-dimensional art crafted from stone, metal, clay, and beyond. From classical statues to modern installations, feel the art in its tangible form.
+
+5. **Interactive Hover Effects**: Bring categories to life with subtle animations like zoom-ins or color overlays, creating a visually dynamic experience. On hover, display brief descriptions or highlights to engage users further.
+
+6. **Dynamic Category Highlights**: Feature a standout artwork or artist for each category with a thumbnail and their name. This draws attention to top creations and adds depth to the browsing experience.
 
 ---
 
