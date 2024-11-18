@@ -19,31 +19,40 @@
                     <textarea class="form-control border-0" placeholder="What would you like to talk about?" rows="15"
                         style="resize: none;"></textarea>
                 </div>
-    
+
                 <!-- Footer with Action Buttons and Post Button -->
-                <div class="d-flex justify-content-between align-items-centern gap-5">
-                    <!-- Action Buttons -->
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 50px;">
-                            <i class="bi bi-image text-primary fs-3"></i>
-                        </button>
-                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 50px;">
-                            <i class="bi bi-file-earmark-text text-info fs-3"></i>
-                        </button>
-                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 50px;">
-                            <i class="bi bi-link-45deg text-warning fs-3"></i>
-                        </button>
-                        <button class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 50px;">
-                            <i class="bi bi-person-plus text-danger fs-3"></i>
-                        </button>
+                <form [formGroup]="postForm" (submit)="onSubmit()">
+                    <input type="file" class="btn btn-secondary" (change)="onFileSelected($event)" accept="image/*"
+                        required>
+                    <button type="submit" class="btn btn-warning mb-3" [disabled]="!selectedFile">Upload Image</button>
+                    <div class="d-flex justify-content-between align-items-centern gap-5">
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-2">
+                            <button
+                                class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px;">
+                                <i class="bi bi-image text-primary fs-3"></i>
+                            </button>
+                            <button
+                                class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px;">
+                                <i class="bi bi-file-earmark-text text-info fs-3"></i>
+                            </button>
+                            <button
+                                class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px;">
+                                <i class="bi bi-link-45deg text-warning fs-3"></i>
+                            </button>
+                            <button
+                                class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px;">
+                                <i class="bi bi-person-plus text-danger fs-3"></i>
+                            </button>
+                        </div>
+                        <!-- Post Button -->
+                        <button class="btn btn-primary rounded-pill px-4">Post</button>
                     </div>
-                    <!-- Post Button -->
-                    <button class="btn btn-primary rounded-pill px-4">Post</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

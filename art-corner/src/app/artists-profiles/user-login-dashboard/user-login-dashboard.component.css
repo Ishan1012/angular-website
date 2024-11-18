@@ -23,3 +23,19 @@ textarea:focus {
     box-shadow: none;
     border-color: transparent;
 }
+
+input[type="file"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card form button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.card form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
