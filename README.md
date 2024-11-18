@@ -15,7 +15,7 @@
 4. [Sample Videos](#sample-videos)
 4. [Project Depandencies](#project-depandencies)
 5. [Setup Instructions](#setup-instructions)
-6. [Futured Categories](#featured-categories)
+6. [Featured Categories](#featured-categories)
 7. [Contact Information](#contact-information)
 
 ---
