@@ -58,7 +58,6 @@ export class ArtistsProfilesComponent {
 
   submit() {
     this.isSubmitted = true;
-    console.log(this.signupForm.value);
 
     if (this.showLogin && this.loginForm.invalid) {
 

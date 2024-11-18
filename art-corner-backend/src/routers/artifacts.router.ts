@@ -6,6 +6,7 @@ import { CreateExploreModel } from "../models/createExplore.model";
 import multer from 'multer';
 import { CreateExplore } from "../../../art-corner/src/app/shared/model/CreateExplore";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
+import { BASE_URL } from "../constants/urls";
 
 const router = Router();
 
@@ -47,22 +48,26 @@ const storage = multer.diskStorage({
 
 const fileFilter = (req: any, file: any, cb: any) => {
     const allowedTypes = ['image/jpeg', 'image/png'];
-    
-    if (allowedTypes.includes(file.mimetype)) {
-      cb(null, true); // Accept the file
-    } else {
-      cb(new Error('Invalid file type. Only JPEG and PNG files are allowed.'));
-    }
-  };
 
-const upload = multer({ storage, fileFilter });
+    if (allowedTypes.includes(file.mimetype)) {
+        cb(null, true); // Accept the file
+    } else {
+        cb(new Error('Invalid file type. Only JPEG and PNG files are allowed.'));
+    }
+};
+
+const upload = multer({ 
+    storage, 
+    fileFilter,
+    limits: { fileSize: 11 * 1024 * 1024 }, // Limit file size to 5MB
+});
 
 router.post("/post-artifact", upload.single('img'), asyncHandler(
     async (req, res) => {
-        const { title, desc, index } = req.body;
+        const { title, desc } = req.body;
         const img = req.file?.filename;
 
-        if (!title || !desc || !index || !img) {
+        if (!title || !desc || !img) {
             res.status(HTTP_BAD_REQUEST).send('All fields are required, including the image.');
             return;
         }
@@ -74,12 +79,13 @@ router.post("/post-artifact", upload.single('img'), asyncHandler(
             return;
         }
 
+        const countDoc = await CreateExploreModel.countDocuments();
         const newItem: CreateExplore = {
             id: '',
             title,
-            index: parseInt(index, 10),
+            index: countDoc+1,
             desc,
-            img,
+            img: `${BASE_URL}${img}`, // Save the relative path in the database
             link: "#",
             like: false,
             bookmark: false,
