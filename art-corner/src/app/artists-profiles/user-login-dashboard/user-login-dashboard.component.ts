@@ -3,8 +3,8 @@ import { User } from '../../shared/model/User';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-login-dashboard',
@@ -21,7 +21,7 @@ export class UserLoginDashboardComponent {
     private router: Router,
     private fromBuilder: FormBuilder,
     @Inject(PLATFORM_ID) private platformId: any,
-    private http: HttpClient
+    private toastr: ToastrService
   ) {
     this.userServices.userObservable.subscribe((user) => {
       this.user = user;
@@ -33,7 +33,7 @@ export class UserLoginDashboardComponent {
   ngOnInit() {
     this.scrollToTop();
     this.postForm = this.fromBuilder.group({
-      name: [''],
+      img: [File, [Validators.required]]
     });
   }
 
@@ -53,24 +53,37 @@ export class UserLoginDashboardComponent {
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
+      const file = input.files[0];
+      const allowedTypes = ['image/jpeg', 'image/png'];
+
+      if (!allowedTypes.includes(file.type)) {
+        this.toastr.error('Only JPEG and PNG files are allowed.',"Image Upload Failed!");
+        this.selectedFile = null; // Reset the selected file
+        return;
+      }
+      this.selectedFile = file;
     }
   }
 
+  uploadImage(): void{
+    
+  }
+
   // Submit the selected file
-  onSubmit(): void {
-    // if (!this.selectedFile) return;
+  onSubmit(event: Event, title: string, desc: string): void {
+    event.preventDefault();
 
-    // const formData = new FormData();
-    // formData.append('image', this.selectedFile);
-
-    // this.http.post('http://your-backend-api/upload', formData).subscribe({
-    //   next: (response) => {
-    //     console.log('Upload successful', response);
-    //   },
-    //   error: (error) => {
-    //     console.error('Upload failed', error);
-    //   }
-    // });
+    if (!this.selectedFile){
+      this.toastr.error('Image is required!', 'Upload Failed!');
+      return;
+    }
+    else if(title === ''){
+      this.toastr.error('Title is required!', 'Upload Failed!');
+      return;
+    }
+    else if(desc === ''){
+      this.toastr.error('Description is required!', 'Upload Failed!');
+      return;
+    }
   }
 }

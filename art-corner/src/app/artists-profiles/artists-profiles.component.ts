@@ -27,103 +27,101 @@ export class ArtistsProfilesComponent {
     private userService: UserService,
     private getBookmarks: BookmarkService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.fromBuilder.group({
       name: [''],
-      email: ['', [Validators.required,Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirmPassword: ['']
     });
     this.signupForm = this.fromBuilder.group({
-      name: ['',[Validators.required,Validators.minLength(5),
-        Validators.pattern(/^[a-zA-Z\s]+$/)
+      name: ['', [Validators.required, Validators.minLength(5),
+      Validators.pattern(/^[a-zA-Z\s]+$/)
       ]],
-      email: ['', [Validators.required,Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
       ]],
       confirmPassword: ['', [Validators.required,
-        this.matchValidator('password')
+      this.matchValidator('password')
       ]]
     });
 
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
   }
 
-  get fc(){
-    return this.showLogin?this.loginForm.controls:this.signupForm.controls;
+  get fc() {
+    return this.showLogin ? this.loginForm.controls : this.signupForm.controls;
   }
 
-  submit(){
+  submit() {
     this.isSubmitted = true;
     console.log(this.signupForm.value);
 
-    if(this.showLogin && this.loginForm.invalid){
+    if (this.showLogin && this.loginForm.invalid) {
 
       const emailControl = this.loginForm.get('email');
-      if(emailControl?.hasError('email'))
+      if (emailControl?.hasError('email'))
         this.toastr.error('Invalid email format!', 'Validation Error!');
-      else if(emailControl?.hasError('required'))
+      else if (emailControl?.hasError('required'))
         this.toastr.error('Email is required!', 'Validation Error!');
 
       const passwordControl = this.loginForm.get('password');
-      if(passwordControl?.hasError('required'))
+      if (passwordControl?.hasError('required'))
         this.toastr.error('Password is required!', 'Validation Error!');
       return;
     }
-    else if(!this.showLogin && this.signupForm.invalid)
-    {
-      
+    else if (!this.showLogin && this.signupForm.invalid) {
+
       // Check Name Validation
       const nameControl = this.signupForm.get('name');
-      if(nameControl?.hasError('required'))
+      if (nameControl?.hasError('required'))
         this.toastr.error('Name is required!', 'Validation Error!');
-      else if(nameControl?.hasError('minlength'))
+      else if (nameControl?.hasError('minlength'))
         this.toastr.error('Name must be at least 5 characters long!', 'Validation Error!');
-      else if(nameControl?.hasError('pattern'))
+      else if (nameControl?.hasError('pattern'))
         this.toastr.error('Name must contain only letters and spaces!', 'Validation Error!');
 
       // Check Email Validation
       const emailControl = this.signupForm.get('email');
-      if(emailControl?.hasError('email'))
+      if (emailControl?.hasError('email'))
         this.toastr.error('Invalid email format!', 'Validation Error!');
-      else if(emailControl?.hasError('required'))
+      else if (emailControl?.hasError('required'))
         this.toastr.error('Email is required!', 'Validation Error!');
 
       // Check Password Validation
       const passwordControl = this.signupForm.get('password');
-      if(passwordControl?.hasError('required'))
+      if (passwordControl?.hasError('required'))
         this.toastr.error('Password is required!', 'Validation Error!');
-      else if(passwordControl?.hasError('minlength'))
+      else if (passwordControl?.hasError('minlength'))
         this.toastr.error('Password must be at least 8 characters long!', 'Validation Error!');
-      else if(passwordControl?.hasError('pattern'))
+      else if (passwordControl?.hasError('pattern'))
         this.toastr.error('Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character!', 'Validation Error!');
-      
+
       // Check Confirm Password Validation
       const confirmPasswordControl = this.signupForm.get('confirmPassword');
-      if(confirmPasswordControl?.hasError('required'))
+      if (confirmPasswordControl?.hasError('required'))
         this.toastr.error('Confirm password is required!', 'Validation Error!');
-      else if(passwordControl?.hasError('isMatching'))
+      else if (passwordControl?.hasError('isMatching'))
         this.toastr.error('Passwords do not match!', 'Validation Error');
 
       return;
     }
 
-    if(this.showLogin) {
+    if (this.showLogin) {
 
-      this.userService.login({email: this.fc['email'].value,
+      this.userService.login({
+        email: this.fc['email'].value,
         password: this.fc['password'].value
-      }).subscribe(()=>{
-        console.log('submit');
+      }).subscribe(() => {
         this.route.navigateByUrl(this.returnUrl);
       })
     }
     else {
       const fv = this.signupForm.value;
-      console.log(fv);
-      const user : IUserRegister = {
+      const user: IUserRegister = {
         id: '',
         name: fv.name,
         email: fv.email,
@@ -155,11 +153,11 @@ export class ArtistsProfilesComponent {
     this.route.navigate(['/login']);
   }
 
-  showPasswordfn(){
+  showPasswordfn() {
     this.showPassword = true;
   }
 
-  hidePasswordfn(){
+  hidePasswordfn() {
     this.showPassword = false;
   }
 }

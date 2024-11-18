@@ -3,7 +3,7 @@ export class CreateExplore{
     index!: number;
     title: string = "";
     desc: string = "";
-    img: string = "";
+    img!: string;
     link: string = "";
     like: boolean = false;
     bookmark: boolean = false;

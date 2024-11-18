@@ -76,7 +76,7 @@ const generateTokenResponse = (user: any) => {
     });
 
     user.token = token;
-    return user
+    return user;
 }
 
 export default router;

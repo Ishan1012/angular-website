@@ -19,10 +19,10 @@ export const ArtifactsSchema = new Schema<CreateExplore>(
         index: {type: Number, required: true},
         desc: {type: String, required: true},
         img: {type: String, required: true},
-        link: {type: String, required: true},
+        link: {type: String, default: '#'},
         like: {type: Boolean,default: false},
         bookmarks: {type: Boolean,default: false},
-        time: {type: String,required: true}
+        time: {type: String,default: ''}
     },{
         toJSON: {
             virtuals: true

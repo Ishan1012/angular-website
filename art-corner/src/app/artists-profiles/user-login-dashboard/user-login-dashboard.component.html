@@ -12,16 +12,22 @@
         <h1 class="mt-5 mb-5">Add Articles</h1>
         <div class="container d-flex justify-content-center align-items-center">
             <div class="card p-3 shadow-sm" style="width: 90vw; border-radius: 12px;">
-                <!-- Header with Profile Picture and Text Area -->
-                <div class="d-flex align-items-start mb-3">
-                    <img [src]="user.img" alt="Profile Picture" class="rounded-circle me-2"
-                        style="width: 50px; height: 50px; object-fit: cover;">
-                    <textarea class="form-control border-0" placeholder="What would you like to talk about?" rows="15"
-                        style="resize: none;"></textarea>
-                </div>
 
                 <!-- Footer with Action Buttons and Post Button -->
-                <form [formGroup]="postForm" (submit)="onSubmit()">
+                <form (submit)="onSubmit($event,title.value,desc.value)" enctype="multipart/form-data">
+                    <!-- Header with Profile Picture and Text Area -->
+                    <div class="row g-4 mb-3">
+                        <div class="d-flex">
+                            <img [src]="user.img" alt="Profile Picture" class="rounded-circle me-2"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                            <h4 class="mt-1 edit-title">Title:</h4>
+                            <textarea class="form-control border-0" placeholder="Enter Title for this Image"
+                                rows="1" style="resize: none;" #title></textarea>
+                        </div>
+                        <textarea class="form-control border-0" placeholder="What would you like to talk about?"
+                            rows="15" style="resize: none;" #desc></textarea>
+                    </div>
+
                     <input type="file" class="btn btn-secondary" (change)="onFileSelected($event)" accept="image/*"
                         required>
                     <button type="submit" class="btn btn-warning mb-3" [disabled]="!selectedFile">Upload Image</button>
@@ -55,8 +61,8 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="container mb-5 text-center">
-        <a (click)="logout()" class="btn btn-danger">Logout</a>
+        <div class="container edit-login text-center vh-10">
+            <a (click)="logout()" class="btn btn-danger">Logout</a>
+        </div>
     </div>
 </div>

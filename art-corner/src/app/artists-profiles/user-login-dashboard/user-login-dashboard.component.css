@@ -39,3 +39,14 @@ input[type="file"] {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.edit-login{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.edit-title{
+    padding-left: 15px;
+    padding-right: 3px;
+    color: #333;
+}
