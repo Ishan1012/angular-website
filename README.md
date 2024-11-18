@@ -134,7 +134,7 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 
 ### **Database**
 
-- ![MongoDB](https://img.shields.io/badge/MongoDB-darkgreen?logo=mongodb&logoColor=white) `MongoDB`
+- ![MongoDB](https://img.shields.io/badge/MongoDB-darkgreen?logo=mongodb&logoColor=white) `mongoDB`
 
 
 ---
