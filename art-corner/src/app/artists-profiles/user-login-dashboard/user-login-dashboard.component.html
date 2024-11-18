@@ -14,27 +14,26 @@
             <div class="card p-3 shadow-sm" style="width: 90vw; border-radius: 12px;">
 
                 <!-- Footer with Action Buttons and Post Button -->
-                <form (submit)="onSubmit($event,title.value,desc.value)" enctype="multipart/form-data">
+                <form [formGroup]="postForm" (submit)="onSubmit($event)" enctype="multipart/form-data">
                     <!-- Header with Profile Picture and Text Area -->
                     <div class="row g-4 mb-3">
                         <div class="d-flex">
                             <img [src]="user.img" alt="Profile Picture" class="rounded-circle me-2"
                                 style="width: 50px; height: 50px; object-fit: cover;">
                             <h4 class="mt-1 edit-title">Title:</h4>
-                            <textarea class="form-control border-0" placeholder="Enter Title for this Image"
-                                rows="1" style="resize: none;" #title></textarea>
+                            <textarea class="form-control border-0" placeholder="Enter title for this image"
+                                rows="1" style="resize: none;" formControlName="title"></textarea>
                         </div>
                         <textarea class="form-control border-0" placeholder="What would you like to talk about?"
-                            rows="15" style="resize: none;" #desc></textarea>
+                            rows="15" style="resize: none;" formControlName="desc"></textarea>
                     </div>
 
                     <input type="file" class="btn btn-secondary" (change)="onFileSelected($event)" accept="image/*"
-                        required>
-                    <button type="submit" class="btn btn-warning mb-3" [disabled]="!selectedFile">Upload Image</button>
+                    formControlName="img">
                     <div class="d-flex justify-content-between align-items-centern gap-5">
                         <!-- Action Buttons -->
                         <div class="d-flex gap-2">
-                            <button
+                            <!-- <button
                                 class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 50px; height: 50px;">
                                 <i class="bi bi-image text-primary fs-3"></i>
@@ -53,10 +52,10 @@
                                 class="btn btn-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 50px; height: 50px;">
                                 <i class="bi bi-person-plus text-danger fs-3"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <!-- Post Button -->
-                        <button class="btn btn-primary rounded-pill px-4">Post</button>
+                        <input type="submit" value="Post" class="btn btn-primary rounded-pill px-4">
                     </div>
                 </form>
             </div>

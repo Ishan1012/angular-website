@@ -14,9 +14,9 @@
         </div>
     </div>
     <div class="icon-bar d-flex justify-content-center gap-1">
-        <a target="_blank" class="btn" (click)="toggleLike(currentItem)"><i
+        <a class="btn" (click)="toggleLike(currentItem)"><i
                 [ngClass]="currentItem.like?'bi-heart-fill edit-heart':'bi-heart'" class="bi fs-3"></i></a>
-        <a target="_blank" *ngIf="activeDownload(); else clipboard" [href]="currentItem.img" [download]="currentItem.title" class="btn" ><i class="bi bi-download fs-3"></i></a>
+        <a *ngIf="activeDownload(); else clipboard" [href]="currentItem.img" [download]="currentItem.title" class="btn" ><i class="bi bi-download fs-3"></i></a>
         <ng-template #clipboard>
             <a routerLink="/login" class="btn" ><i class="bi bi-download fs-3"></i></a>
         </ng-template>
