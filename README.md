@@ -12,11 +12,11 @@
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
 4. [System Architecture](#system-architecture)
-4. [Sample Videos](#sample-videos)
-4. [Project Depandencies](#project-depandencies)
-5. [Setup Instructions](#setup-instructions)
-6. [Featured Categories](#featured-categories)
-7. [Contact Information](#contact-information)
+5. [Sample Videos](#sample-videos)
+6. [Project Depandencies](#project-depandencies)
+7. [Setup Instructions](#setup-instructions)
+8. [Featured Categories](#featured-categories)
+9. [Contact Information](#contact-information)
 
 ---
 
