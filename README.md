@@ -150,7 +150,7 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 npm install -g @angular/cli
 ```
 
-### **Steps to Run the Application Locally**
+### **Steps to Run the Frontend of this Application Locally**
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/art-corner.git
@@ -174,6 +174,23 @@ npm install -g @angular/cli
 5. Open the application in a browser:
    ```
    http://localhost:4200
+   ```
+
+
+### **Steps to Run the Backend of this Application Locally**
+1. Navigate to the project directory:
+   ```bash
+   cd art-corner-backend
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the Backend server:
+   ```bash
+   npm start
    ```
 
 ---
