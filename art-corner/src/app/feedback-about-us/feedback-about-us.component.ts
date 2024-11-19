@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IFeedback } from '../shared/interfaces/IFeedback';
 import { UserService } from '../services/user.service';
+import { User } from '../shared/model/User';
 
 @Component({
   selector: 'app-feedback-about-us',
@@ -14,6 +15,7 @@ import { UserService } from '../services/user.service';
 export class FeedbackAboutUsComponent {
   postForm!: FormGroup;
   returnUrl = '';
+  user!: User;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
@@ -30,6 +32,9 @@ export class FeedbackAboutUsComponent {
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       message: ['', Validators.required]
+    });
+    this.userService.userObservable.subscribe((user) => {
+      this.user = user;
     });
 
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
@@ -59,11 +64,17 @@ export class FeedbackAboutUsComponent {
   }
 
   onSubmit(): void {
+    if (!this.user.id) {
+      this.toastr.error('Please login to fill the feedback form!', 'Feedback Submission Failed!');
+      return;
+    }
+
     if (this.postForm.invalid) {
       const nameControl = this.postForm.get('name');
       const emailControl = this.postForm.get('email');
       const subjectControl = this.postForm.get('subject');
       const messageControl = this.postForm.get('message');
+
 
       if (nameControl?.hasError("required")) {
         this.toastr.error('Name is required!', 'Feedback Submission Failed!');
