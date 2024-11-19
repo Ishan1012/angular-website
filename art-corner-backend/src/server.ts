@@ -9,6 +9,7 @@ import userRouter from './routers/user.router';
 import { dbConnect } from './configs/database.config';
 import path from 'path';
 import { PORT } from './constants/urls';
+import feedbackRouter from './routers/feedback.router';
 
 dbConnect();
 
@@ -23,6 +24,7 @@ app.use(cors({
 app.use("/api/artifacts", artifactsRouter);
 app.use("/api/community", communityRouter);
 app.use("/api/user", userRouter);
+app.use("/api/feedback", feedbackRouter);
 
 // Serve static files from the uploads folder
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));

@@ -3,10 +3,12 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/model/User';
 import { HttpClient } from '@angular/common/http';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { POST_FEEDBACK, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { isPlatformBrowser } from '@angular/common';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
+import { IFeedback } from '../shared/interfaces/IFeedback';
+import { Feedback } from '../shared/model/Feedback';
 
 const USER_KEY = 'User';
 @Injectable({
@@ -16,12 +18,18 @@ export class UserService {
   private userSubject = 
   new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable: Observable<User>;
+  
+  private feedbackSubject = 
+  new BehaviorSubject<Feedback>(new Feedback());
+  public feedbackObservable: Observable<Feedback>;
+
   constructor(
     private http:HttpClient,
     private toastrService: ToastrService,
     @Inject(PLATFORM_ID) private platfromId: any
   ) { 
     this.userObservable = this.userSubject.asObservable();
+    this.feedbackObservable = this.feedbackSubject.asObservable();
   }
 
   login(userLogin: IUserLogin): Observable<User> {
@@ -68,6 +76,26 @@ export class UserService {
     if(isPlatformBrowser(this.platfromId))
       localStorage.removeItem(USER_KEY);
     window.location.reload();
+  }
+
+  sendFeedback(feedbackRegister: IFeedback): Observable<Feedback>{
+    return this.http.post<Feedback>(POST_FEEDBACK, feedbackRegister).pipe(
+      tap({
+        next: (user) => {
+          this.feedbackSubject.next(user);
+          this.toastrService.success(
+            `Thank you for providing your feedback and helping us improve.`,
+            'Feedback Uploaded'
+          )
+        },
+        error: (errorResponse) => {
+          console.log(errorResponse);
+          this.toastrService.error(errorResponse.error,
+            'Uploading Failed!'
+          )
+        }
+      })
+    ); 
   }
 
   private setUserToLocalStorage(user: User) {

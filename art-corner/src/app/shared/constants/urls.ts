@@ -14,3 +14,4 @@ export const USER_REGISTER_URL = BASE_URL + "/api/user/signup";
 
 
 export const POST_ARTIFACTS = ARITFACTS_URL + "/post-artifact";
+export const POST_FEEDBACK = BASE_URL + "/api/feedback/post";
