@@ -75,26 +75,26 @@
     <h3 class="rotate">Contact</h3>
     <h2>Let's Discuss Project</h2>
     <div class="contect-details">
-        <form action="#">
+        <form [formGroup]="postForm" (submit)="onSubmit()">
             <h3>Get in touch</h3>
             <h6>Our friendly team would love to hear from you</h6>
             <div class="name-email">
                 <div class="name-box">
                     <label for="#">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Name">
+                    <input type="text" formControlName="name" placeholder="Name">
                 </div>
                 <div class="Email-box">
                     <label for="#">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Email">
+                    <input type="email" formControlName="email" placeholder="Email">
                 </div>
             </div>
             <div class="subject">
                 <label for="#">Subject</label>
-                <input type="text" name="subject" id="subject" placefolder="Subject">
+                <input type="text" formControlName="subject" placefolder="Subject">
             </div>
             <div class="Message">
                 <label for="#">Message</label>
-                <textarea name="message" id="message" cols="30" rows="5" placeholder="Message"></textarea>
+                <textarea name="message" formControlName="message" cols="30" rows="5" placeholder="Message"></textarea>
             </div>
             <button class="send-edit"><a class="text-decoration-none fw-bold">Send message</a></button>
         </form>
