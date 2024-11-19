@@ -1,1 +1,16 @@
-<p>blog-news-section works!</p>
+<div class="container">
+    <br>
+    <h1 class="text-center">Insights & Highlights</h1>
+    <br>
+    <div class="edit-container">
+      <div class="row g-4 d-flex justify-content-center">
+        <div *ngFor="let item of newsletters; trackBy: trackByFn">
+            <div class="card">
+                <h3 class="card-body">{{item.title}}</h3>
+                <div class="card-body">{{item.desc}}</div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>

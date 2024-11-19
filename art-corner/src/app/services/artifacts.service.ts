@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ARITFACTS_BY_ID_URL, ARITFACTS_BY_SEARCH_URL, ARITFACTS_URL, BASE_URL, POST_ARTIFACTS } from '../shared/constants/urls';
-import { IArtifactPost } from '../shared/interfaces/IArtifactPost';
 
 @Injectable({
   providedIn: 'root'

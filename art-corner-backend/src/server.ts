@@ -10,6 +10,7 @@ import { dbConnect } from './configs/database.config';
 import path from 'path';
 import { PORT } from './constants/urls';
 import feedbackRouter from './routers/feedback.router';
+import newslettersRouter from './routers/newsletters.router';
 
 dbConnect();
 
@@ -25,6 +26,7 @@ app.use("/api/artifacts", artifactsRouter);
 app.use("/api/community", communityRouter);
 app.use("/api/user", userRouter);
 app.use("/api/feedback", feedbackRouter);
+app.use("/api/newsletters", newslettersRouter);
 
 // Serve static files from the uploads folder
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));

@@ -12,6 +12,7 @@ import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashb
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
 import { ArtifactsService } from './services/artifacts.service';
 import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
+import { BlogNewsSectionComponent } from './blog-news-section/blog-news-section.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexPageComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'community', component: CommunityForumComponent},
   { path: 'community/description/:commid', component: CommunityDescriptionComponent},
   { path: 'community/general-community', component: GeneralCommunityPageComponent},
+  { path: 'news', component: BlogNewsSectionComponent },
   { path: 'about', component: FeedbackAboutUsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: ErrorPageComponent }
