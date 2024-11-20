@@ -143,6 +143,7 @@ This application is structured as a **Single Page Application (SPA)** using Angu
 
 ### **Pre-requisites**
 - **Node.js** (v12 or higher)
+- **MongoDB** 
 - **Angular CLI**
 
 ```bash
