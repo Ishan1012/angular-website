@@ -154,7 +154,7 @@ npm install -g @angular/cli
 ### **Steps to Run the Frontend of this Application Locally**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/art-corner.git
+   git clone https://github.com/Ishan1012/The-Art-Corner-Web-Application.git
    ```
 
 2. Navigate to the project directory:
