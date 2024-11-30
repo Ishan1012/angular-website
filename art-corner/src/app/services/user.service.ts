@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/model/User';
 import { HttpClient } from '@angular/common/http';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
-import { POST_FEEDBACK, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { GET_USER_LIST_URL, POST_FEEDBACK, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { isPlatformBrowser } from '@angular/common';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
@@ -97,6 +97,18 @@ export class UserService {
       })
     ); 
   }
+
+  getUsers(user: User): Observable<User[]> {
+    if (user.isAdmin) {
+      return this.http.get<User[]>(GET_USER_LIST_URL);
+    } else {
+      return new Observable<User[]>((observer) => {
+        observer.next([]); // Return an empty array for non-admin users
+        observer.complete();
+      });
+    }
+  }
+  
 
   private setUserToLocalStorage(user: User) {
     if(isPlatformBrowser(this.platfromId))

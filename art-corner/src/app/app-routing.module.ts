@@ -10,7 +10,6 @@ import { GeneralCommunityPageComponent } from './community-forum/general-communi
 import { ArtistsProfilesComponent } from './artists-profiles/artists-profiles.component';
 import { UserLoginDashboardComponent } from './artists-profiles/user-login-dashboard/user-login-dashboard.component';
 import { CommunityDescriptionComponent } from './community-forum/community-description/community-description.component';
-import { ArtifactsService } from './services/artifacts.service';
 import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
 import { BlogNewsSectionComponent } from './blog-news-section/blog-news-section.component';
 

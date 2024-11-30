@@ -21,6 +21,13 @@ router.get("/seed", asyncHandler(
     }
 ))
 
+router.get("/getAllUser", asyncHandler(
+    async (req, res) => {
+        const users = await UserModel.find();
+        res.send(users);
+    }
+))
+
 router.post("/login", asyncHandler(
     async (req, res) => {
         const { email, password } = req.body;

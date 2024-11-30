@@ -12,6 +12,7 @@ export const COMMUNITY_BY_SEARCH_URL = COMMUNITY_URL + "/search/";
 
 export const USER_LOGIN_URL = BASE_URL + "/api/user/login";
 export const USER_REGISTER_URL = BASE_URL + "/api/user/signup";
+export const GET_USER_LIST_URL = BASE_URL + "/api/user/getAllUser";
 
 
 export const POST_ARTIFACTS = ARITFACTS_URL + "/post-artifact";

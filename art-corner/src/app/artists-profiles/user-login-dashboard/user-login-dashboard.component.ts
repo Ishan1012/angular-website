@@ -30,6 +30,9 @@ export class UserLoginDashboardComponent {
     this.userServices.userObservable.subscribe((user) => {
       this.user = user;
     });
+    if(this.user.isAdmin === true) {
+      
+    }
     if(!this.user.id)
       this.router.navigate(['/index']);
   }
