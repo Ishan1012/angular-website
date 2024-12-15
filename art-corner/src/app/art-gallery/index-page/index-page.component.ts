@@ -50,13 +50,4 @@ export class IndexPageComponent {
       });
     }
   }
-
-  openLink(): void {
-    if(this.user.id) {
-      this.router.navigate(['/profile']);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
-  }
 }

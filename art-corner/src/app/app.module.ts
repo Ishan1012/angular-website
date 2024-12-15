@@ -20,6 +20,8 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { ErrorPageComponent } from './accessibility-features/error-page/error-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceContentComponent } from './art-gallery/index-page/service-content/service-content.component';
+import { GridOneContentComponent } from './art-gallery/index-page/grid-one-content/grid-one-content.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserLoginDashboardComponent,
     AdminLoginDashboardComponent,
     CommunityDescriptionComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ServiceContentComponent,
+    GridOneContentComponent,
   ],
   imports: [
     BrowserModule,

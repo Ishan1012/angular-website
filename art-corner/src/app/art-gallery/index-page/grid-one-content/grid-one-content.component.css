@@ -1,0 +1,142 @@
+.grid-content .content-wrapper {
+    max-width: 360px;
+}
+
+.grid-content {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 137px;
+}
+
+.grid-content .title-box .title-separator {
+    margin-left: 0;
+    margin-top: 26px;
+}
+
+.grid-content .text {
+    text-align: justify, center;
+    line-height: 1.667;
+}
+
+.grid-content .btn {
+    margin-top: 37px;
+}
+
+.sc-grid-one {
+    padding: 115.5px 0 114.5px;
+    background-color: #fcefbd;
+    color: #000;
+}
+
+.sc-grid-one .grid-content .title-box .title-separator {
+    margin-left: 0;
+}
+
+.title-box .title-box-name {
+    font-weight: 700;
+    padding-left: 0;
+    font-size: 2.7rem;
+}
+
+
+.btn {
+    min-width: 200px;
+    height: 56px;
+    border-radius: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 300ms ease-in-out;
+}
+
+.btn:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+
+@media screen and (max-width:992px) {
+    .sc-services {
+        padding: 80px 0 !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .services-item {
+        width: calc(50% - 37px);
+    }
+
+    .sc-services {
+        padding-top: 120px;
+        padding-bottom: 115.5px;
+    }
+
+    .services-shape {
+        width: 70%;
+        top: 340px;
+    }
+
+    .sc-grid-one,
+    .sc-grid-two {
+        padding: 100px 0;
+    }
+
+    .grid-content .content-wrapper {
+        max-width: 600px;
+        margin: auto;
+        text-align: justify, center;
+    }
+
+    .grid-content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-content .title-box .title-separator {
+        margin-left: auto;
+    }
+
+    .grid-content .grid-img {
+        max-width: 480px;
+        margin: 0 auto 40px;
+    }
+
+    .sc-grid.sc-grid-two .grid-content .content-wrapper {
+        max-width: 600px;
+        margin: auto;
+        text-align: justify, center;
+    }
+
+    .sc-grid-two .grid-content .grid-text {
+        width: 100%;
+        margin: 0 0 60px;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .sc-grid-one,
+    .sc-grid-two {
+        padding: 80px 0;
+    }
+}
+
+@media screen and (max-width:678px) {
+    .sc-services .services-list {
+        margin: 0;
+    }
+
+    .services-list .services-item {
+        width: 100%;
+        margin: 12px 0;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .services-item {
+        text-align: center;
+    }
+
+    .services-item .item-icon img {
+        margin: auto;
+    }
+}

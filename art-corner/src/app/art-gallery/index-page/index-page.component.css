@@ -66,10 +66,9 @@ h3 {
     border: 1px solid rgb(253, 67, 18);
     color: white;
     font-size: 16px;
-    border-radius: 3px;
+    border-radius: 10px;
     font-weight: 600;
     transition: .6s;
-    border-radius: 10px;
 }
 
 .contact-section button:hover {
@@ -86,26 +85,7 @@ h3 {
 
 .contact-section .social-icons i:hover {
     transform: translateY(-5px);
-}
-
-.contact-section .social-icons i:nth-child(1):hover {
-    color: rgb(6, 68, 192);
-}
-
-.contact-section .social-icons i:nth-child(2):hover {
-    color: rgb(227, 79, 5);
-}
-
-.contact-section .social-icons i:nth-child(3):hover {
-    color: rgb(0, 179, 255);
-}
-
-.contact-section .social-icons i:nth-child(4):hover {
-    color: rgb(3, 5, 91);
-}
-
-.contact-section .social-icons i:nth-child(5):hover {
-    color: rgb(250, 1, 1);
+    color: #015bb4;
 }
 
 .hero-image {
@@ -130,141 +110,90 @@ h3 {
     opacity: 0;
 }
 
-img, picture, video, canvas, svg{
+img,
+picture,
+video,
+canvas,
+svg {
     max-width: 100%;
     display: block;
 }
-input, button, textarea, select{
+
+input,
+button,
+textarea,
+select {
     font: inherit;
     outline: 0;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
 }
-textarea{
+
+textarea {
     resize: none;
 }
-img, object{
+
+img,
+object {
     max-width: 100%;
 }
 
-/* services */
-.sc-services{
-    padding-top: 79px;
-    padding-bottom: 115.9px;
-    position: relative;
-    overflow: hidden;
-}
-.sc-services .content-wrapper{
-    max-width: 670px;
-    margin-right: auto;
-    margin-left: auto;
-}
-.sc-services .content-wrapper .text{
-    line-height: 1.6667;
-    text-align: justify, center;
-}
-.services-list{
-    margin-top: calc(83px - 18.5px);
-    margin-bottom: -18.5px;
-    margin-right: -18.5px;
-    margin-left: -18.5px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.services-item{
-    box-shadow: 10px 40px 50px 0px #e5e9f666;
-    background-color: #ffffff75;
-    border: .01px solid #000;
-    border-radius: 20px;
-    width: 350px;
-    min-height: 354px;
-    padding: 46px 38px;
-    margin: 18.5px;
-    width: calc(33.3333% - 37px);
-    transition: all 500ms ease-in-out;
-}
-.services-item:hover{
-    background-color: rgb(251, 249, 236);
-    box-shadow:  rgba(0, 0, 0, 1.2) 0 20px 25px -5px, rgba(0, 0, 0, 0.4) 0 20px 20px -10px;
-}
 
-.services-item .item-icon img{
-    transition: all 0.5s ease-in-out;
-}
-
-.services-item:hover .item-icon img{
-    transform: scale(1.1);
-}
-
-.services-item .item-title{
-    font-size: 24px;
-    margin-top: 22px;
-    margin-bottom: 12px;
-}
-.services-shape{
-    position: absolute;
-    z-index: -1;
-    top: 290px;
-    left: -70px;
-}
-.services-main-btn{
-    margin-top: 69px;
-}
-
-/* grid block one */
-.grid-content .content-wrapper{
+.grid-content .content-wrapper {
     max-width: 360px;
 }
-.grid-content{
+
+.grid-content {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 137px;
 }
-.grid-content .title-box .title-separator{
+
+.grid-content .title-box .title-separator {
     margin-left: 0;
     margin-top: 26px;
 }
-.grid-content .text{
+
+.grid-content .text {
     text-align: justify, center;
     line-height: 1.667;
 }
-.grid-content .btn{
+
+.grid-content .btn {
     margin-top: 37px;
 }
 
-/* grid one */
-.sc-grid-one{
-    padding: 115.5px 0 114.5px 0;
-    background-color: #fcefbd;
-    color: #000;
+.sc-grid-two {
+    padding: 114.5px 0 125px;
 }
 
-.sc-grid-one .grid-content .title-box .title-separator{
-    margin-left: 0;
-}
-
-/* grid two */
-.sc-grid-two{
-    padding: 114.5px 0 125px 0;
-}
-.sc-grid-two .grid-content .grid-img{
+.sc-grid-two .grid-content .grid-img {
     order: 2;
 }
-.sc-grid-two .grid-content .grid-text .content-wrapper{
+
+.sc-grid-two .grid-content .grid-text .content-wrapper {
     max-width: 340px;
 }
-.sc-grid-two .btn:hover img{
+
+.sc-grid-two .btn:hover img {
     filter: invert(100%) brightness(100);
 }
-.sc-grid-two .grid-content .grid-text{
+
+.sc-grid-two .grid-content .grid-text {
     margin-left: auto;
 }
-.sc-grid-two .btn img{
+
+.sc-grid-two .btn img {
     margin-left: 7px;
 }
 
-.btn{
-
+.btn {
     min-width: 200px;
     height: 56px;
     border-radius: 54px;
@@ -276,11 +205,11 @@ img, object{
     transition: all 300ms ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
-.title-box .title-box-name{
+.title-box .title-box-name {
     font-weight: 700;
     padding-left: 0;
     font-size: 2.7rem;
@@ -298,7 +227,7 @@ img, object{
     }
 }
 
-@media(max-width:1100px) {
+/* @media(max-width:1100px) {
     .hero {
         flex-direction: column;
     }
@@ -327,11 +256,10 @@ img, object{
     .hero .hero-images {
         height: 550px;
         width: auto;
-
     }
-}
+} */
 
-@media(max-width:800px) {
+/* @media(max-width:800px) {
     .contact-section {
         flex-direction: column;
         margin-bottom: 30px;
@@ -351,8 +279,7 @@ img, object{
     }
 
     .contact-section button {
-        margin-bottom: 30px;
-        margin-top: 25px;
+        margin: 25px 0 30px;
     }
 }
 
@@ -369,17 +296,16 @@ img, object{
     }
 
     .contact-section button {
-        margin-bottom: 30px;
-        margin-top: 25px;
+        margin: 25px 0 30px;
     }
 
     .hero .hero-images img {
         width: 50px;
         height: auto;
     }
-}
+} */
 
-@media(max-width:50px) {
+/* @media(max-width:50px) {
 
     .hero .content h1,
     .hero .content h1 span {
@@ -393,101 +319,99 @@ img, object{
     }
 
     .contact-section button {
-        margin-bottom: 30px;
-        margin-top: 25px;
+        margin: 25px 0 30px;
     }
 
     .hero .hero-images img {
         width: 50px;
         height: auto;
     }
-}
+} */
 
-@media screen and (max-width: 992px){
-    /* services */
-    .sc-services{
-        padding-top: 80px!important;
-        padding-bottom: 80px!important;
+
+@media screen and (max-width:992px) {
+    .sc-services {
+        padding: 80px 0 !important;
         position: relative;
         overflow: hidden;
     }
 
-    .services-item{
+    .services-item {
         width: calc(50% - 37px);
     }
 
-    .sc-services{
+    .sc-services {
         padding-top: 120px;
         padding-bottom: 115.5px;
     }
-    .services-shape{
+
+    .services-shape {
         width: 70%;
         top: 340px;
     }
 
-    /* grid one */
-    .sc-grid-one, .sc-grid-two{
+    .sc-grid-one,
+    .sc-grid-two {
         padding: 100px 0;
     }
 
-    .grid-content .content-wrapper{
+    .grid-content .content-wrapper {
         max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
         text-align: justify, center;
-    }
-    .grid-content{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .grid-content .title-box .title-separator{
-        margin-left: auto;
-    }
-    .grid-content .grid-img{
-        max-width: 480px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 40px;
     }
 
-    .sc-grid.sc-grid-two .grid-content .content-wrapper{
-        max-width: 600px;
+    .grid-content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-content .title-box .title-separator {
         margin-left: auto;
-        margin-right: auto;
+    }
+
+    .grid-content .grid-img {
+        max-width: 480px;
+        margin: 0 auto 40px;
+    }
+
+    .sc-grid.sc-grid-two .grid-content .content-wrapper {
+        max-width: 600px;
+        margin: auto;
         text-align: justify, center;
     }
-    .sc-grid-two .grid-content .grid-text{
+
+    .sc-grid-two .grid-content .grid-text {
         width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-        margin-bottom: 60px;
+        margin: 0 0 60px;
     }
 }
 
-@media screen and (max-width: 768px){
-    /* grid one */
-    .sc-grid-one, .sc-grid-two{
+/* 
+@media screen and (max-width:768px) {
+
+    .sc-grid-one,
+    .sc-grid-two {
         padding: 80px 0;
     }
 }
 
-@media screen and (max-width: 678px){
-    .sc-services .services-list{
-        margin-right: 0;
-        margin-left: 0;
+@media screen and (max-width:678px) {
+    .sc-services .services-list {
+        margin: 0;
     }
 
-    .services-list .services-item{
+    .services-list .services-item {
         width: 100%;
         margin: 12px 0;
     }
 }
 
-@media screen and (max-width: 576px){
-    .services-item{
+@media screen and (max-width:576px) {
+    .services-item {
         text-align: center;
     }
-    .services-item .item-icon img{
-        margin-right: auto;
-        margin-left: auto;
+
+    .services-item .item-icon img {
+        margin: auto;
     }
-}
+ } */

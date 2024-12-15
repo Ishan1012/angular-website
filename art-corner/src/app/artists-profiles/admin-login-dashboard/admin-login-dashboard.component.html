@@ -1,83 +1,91 @@
 <div class="container-fluid mb-3">
-    <div class="container edit-container">
-        <div class="img-container text-center">
-            <img [src]="user.img" alt="">
+    <div class="container py-5">
+        <div class="text-center">
+            <img [src]="user.img" class="img-fluid rounded-circle border border-dark" style="width: 30vh;" alt="">
         </div>
-        <div class="container text-center edit-text">
-            <h1>{{user.name}}</h1>
+        <div class="text-center mt-3">
+            <h1 class="fs-2">{{user.name}}</h1>
         </div>
     </div>
     <hr>
     <!-- CONTENT -->
     <section id="content">
-
         <!-- MAIN -->
         <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Dashboard</h1>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>
+                    <h1 class="fs-3 fw-bold text-dark">Dashboard</h1>
                 </div>
             </div>
 
-
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>User Status</h3>
-                        <a href=""><i class='bi bi-search fs-5'></i></a>
-                        <a href=""><i class='bi bi-filter fs-3'></i></a>
+            <div class="d-flex flex-wrap gap-3 mt-3">
+                <!-- User Status Table -->
+                <div class="flex-grow-1" style="min-width: 500px;">
+                    <div class="bg-light rounded p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="fs-4 fw-bold">User Status</h3>
+                            <div>
+                                <a href="#"><i class='bi bi-search fs-5'></i></a>
+                                <a href="#"><i class='bi bi-filter fs-3'></i></a>
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of userList; trackBy: trackByFn">
+                                    <td class="d-flex align-items-center gap-2">
+                                        <img [src]="item.img" class="rounded-circle" style="width: 36px; height: 36px;">
+                                        <p class="mb-0">{{item.name}}</p>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-primary">Active</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let item of userList; trackBy: trackByFn">
-                                <td>
-                                    <img [src]="item.img">
-                                    <p>{{item.name}}</p>
-                                </td>
-
-                                <td><span class="status completed">Active</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-                <div class="todo">
-                    <div class="head">
-                        <h3>Newsletters</h3>
-                        <a href=""><i class='bi bi-plus fs-3'></i></a>
-                        <a href=""><i class='bi bi-filter fs-3'></i></a>
+
+                <!-- Todo List -->
+                <div class="flex-grow-1" style="min-width: 300px;">
+                    <div class="bg-light rounded p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="fs-4 fw-bold">Newsletters</h3>
+                            <div>
+                                <a href="#"><i class='bi bi-plus fs-3'></i></a>
+                                <a href="#"><i class='bi bi-filter fs-3'></i></a>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light border-start border-primary rounded">
+                                <p class="mb-0">Newsletter title 1</p>
+                                <i class='bi bi-three-dots-vertical'></i>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light border-start border-primary rounded">
+                                <p class="mb-0">Newsletter title 2</p>
+                                <i class='bi bi-three-dots-vertical'></i>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light border-start border-warning rounded">
+                                <p class="mb-0">Newsletter title 3</p>
+                                <i class='bi bi-three-dots-vertical'></i>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light border-start border-primary rounded">
+                                <p class="mb-0">Newsletter title 4</p>
+                                <i class='bi bi-three-dots-vertical'></i>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light border-start border-warning rounded">
+                                <p class="mb-0">Newsletter title 5</p>
+                                <i class='bi bi-three-dots-vertical'></i>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="todo-list">
-                        <li class="completed">
-                            <p>Newsletter title 1</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <p>Newsletter title 1</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <p>Newsletter title 1</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="completed">
-                            <p>Newsletter title 1</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                        <li class="not-completed">
-                            <p>Newsletter title 1</p>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </main>
-        <!-- MAIN -->
     </section>
-    <!-- CONTENT -->
 </div>
