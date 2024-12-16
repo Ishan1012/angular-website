@@ -6,7 +6,7 @@
     <br>
     <div class="title-image-wrapper d-flex align-items-center flex-column">
         <a [href]="currentItem.img">
-            <img [src]="currentItem.img" [class.show]="!isFading" loading="lazy"
+            <img [src]="'/The-Art-Corner-Web-Application'+currentItem.img" [class.show]="!isFading" loading="lazy"
                 class="img-edit mb-3 h-xl-10 h-md-20 h-sm-30" alt="Image" style="padding: 0;">
         </a>    
         <div>
@@ -34,7 +34,7 @@
             <div *ngFor="let item of recommend_list; trackBy: trackByFn"
                 class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
                 <div class="card text-center h-100 img-container" style="overflow: hidden;">
-                    <img [src]="item.img" (click)="openImage(item)" loading="lazy" class="img more-img" alt="image">
+                    <img [src]="'/The-Art-Corner-Web-Application'+item.img" (click)="openImage(item)" loading="lazy" class="img more-img" alt="image">
                 </div>
             </div>
         </div>

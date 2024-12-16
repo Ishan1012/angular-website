@@ -30,7 +30,7 @@
     "express": "^4.21.1",
     "firebase": "^11.0.1",
     "jquery": "^3.7.1",
-    "mongoose": "^8.8.1",
+    "mongoose": "^8.9.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

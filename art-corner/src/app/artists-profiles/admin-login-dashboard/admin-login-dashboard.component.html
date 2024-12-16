@@ -1,7 +1,7 @@
 <div class="container-fluid mb-3">
     <div class="container py-5">
         <div class="text-center">
-            <img [src]="user.img" class="img-fluid rounded-circle border border-dark" style="width: 30vh;" alt="">
+            <img [src]="'/The-Art-Corner-Web-Application'+user.img" class="img-fluid rounded-circle border border-dark" style="width: 30vh;" alt="">
         </div>
         <div class="text-center mt-3">
             <h1 class="fs-2">{{user.name}}</h1>
@@ -39,7 +39,7 @@
                             <tbody>
                                 <tr *ngFor="let item of userList; trackBy: trackByFn">
                                     <td class="d-flex align-items-center gap-2">
-                                        <img [src]="item.img" class="rounded-circle" style="width: 36px; height: 36px;">
+                                        <img [src]="'/The-Art-Corner-Web-Application'+item.img" class="rounded-circle" style="width: 36px; height: 36px;">
                                         <p class="mb-0">{{item.name}}</p>
                                     </td>
                                     <td>

@@ -4,11 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild" : "cd art-corner-backend && npm run build",
-    "build" : "cd art-corner && npm run build"
+    "prebuild": "cd art-corner-backend && npm run build",
+    "build": "cd art-corner && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "typescript": "^5.7.2"
+  }
 }

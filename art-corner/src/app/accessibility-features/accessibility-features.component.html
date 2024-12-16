@@ -23,7 +23,7 @@
             <div *ngFor="let item of bookmarks.items; trackBy: trackByFn"
                 class="col-xl-3 col-lg-4 col-md-5 col-sm-7 col-auto">
                 <div class="card text-center" style="width: 18rem; overflow: hidden;">
-                    <img [src]="item.artifacts.img" class="card-img-top img-fit" alt="Image" (click)="readMore(item.artifacts)">
+                    <img [src]="'/The-Art-Corner-Web-Application'+item.artifacts.img" class="card-img-top img-fit" alt="Image" (click)="readMore(item.artifacts)">
                     <div class="card-body edit-card-body">
                         <h5 class="card-title">{{item.artifacts.title}}</h5>
                         <div class="btn-styles text-end">
