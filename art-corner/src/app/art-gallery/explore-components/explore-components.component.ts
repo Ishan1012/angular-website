@@ -60,7 +60,7 @@ export class ExploreComponentsComponent {
 
   readMore(item: CreateExplore) {
     this.currentItem = item;
-    this.router.navigate(['/explore', this.currentItem.id]);
+    this.router.navigate(['/The-Art-Corner-Web-Application/explore', this.currentItem.id]);
   }
 
   getId(item: any) {

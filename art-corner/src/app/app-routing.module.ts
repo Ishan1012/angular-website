@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'news', component: BlogNewsSectionComponent },
   { path: 'about', component: FeedbackAboutUsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '**', component: ErrorPageComponent }
+  // { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({

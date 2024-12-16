@@ -20,10 +20,10 @@ export class GridOneContentComponent {
   }
   openLink(): void {
     if(this.user.id) {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/The-Art-Corner-Web-Application/profile']);
     }
     else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/The-Art-Corner-Web-Application/login']);
     }
   }
 }

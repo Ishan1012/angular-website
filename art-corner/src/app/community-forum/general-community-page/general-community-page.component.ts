@@ -34,7 +34,7 @@ export class GeneralCommunityPageComponent {
   }
 
   OpenCommunityPage(item: CreateCommunities) {
-    this.router.navigate(['/community/description', JSON.stringify(item)]);
+    this.router.navigate(['/The-Art-Corner-Web-Application/community/description', JSON.stringify(item)]);
   }
 
   JoinCommunity(item: CreateCommunities) {

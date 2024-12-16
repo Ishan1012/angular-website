@@ -66,7 +66,7 @@ export class EducationalResourcesComponent implements OnInit {
           this.currentItem = currentItem;
 
           if(currentItem === null){
-            this.router.navigate(['error404']);
+            this.router.navigate(['/The-Art-Corner-Web-Application/error404']);
           }
         })
       }
@@ -128,7 +128,7 @@ export class EducationalResourcesComponent implements OnInit {
       
       const index2 = this.artifacts.indexOf(this.currentItem)-1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-      this.router.navigate(['/explore',this.currentItem.id]);
+      this.router.navigate(['/The-Art-Corner-Web-Application/explore',this.currentItem.id]);
     }
   }
 
@@ -149,7 +149,7 @@ export class EducationalResourcesComponent implements OnInit {
       this.applyFadeEffect(() => this.currentItem = this.artifacts[index+1]);
       const index2 = this.artifacts.indexOf(this.currentItem)+1;
       this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-      this.router.navigate(['/explore',this.currentItem.id]);
+      this.router.navigate(['/The-Art-Corner-Web-Application/explore',this.currentItem.id]);
     }
   }
 
@@ -171,7 +171,7 @@ export class EducationalResourcesComponent implements OnInit {
     const index2 = this.artifacts.indexOf(this.currentItem);
     this.scrollToTop();
     this.applyFadeEffect(() => this.recommend_list = this.getRecommendations(index2));
-    this.router.navigate(['/explore',this.currentItem.id]);
+    this.router.navigate(['/The-Art-Corner-Web-Application/explore',this.currentItem.id]);
   }
 
   copyToClipboard(): void {

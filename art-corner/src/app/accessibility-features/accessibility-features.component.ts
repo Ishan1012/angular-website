@@ -46,7 +46,7 @@ export class AccessibilityFeaturesComponent implements OnInit {
 
   readMore(item: CreateExplore) {
     this.currentItem = item;
-    this.router.navigate(['/bookmarks', this.currentItem.id]);
+    this.router.navigate(['/The-Art-Corner-Web-Application/bookmarks', this.currentItem.id]);
   }
 
   checkActiveFav(): boolean {

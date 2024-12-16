@@ -33,9 +33,9 @@ export class IndexPageComponent {
 
   redirect(): void{
     if(!this.user.id)
-      this.router.navigate(['/login']);
+      this.router.navigate(['/The-Art-Corner-Web-Application/login']);
     else
-      this.router.navigate(['/explore']);
+      this.router.navigate(['/The-Art-Corner-Web-Application/explore']);
   }
 
   trackByFn(item: any) {
