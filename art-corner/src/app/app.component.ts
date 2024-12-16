@@ -15,6 +15,7 @@ export class AppComponent {
   artifacts: CreateExplore[] = [];
   user!: User;
   isDropdownOpen = false;
+  title = "Art Corner | A Responsive Portfolio Web Application";
   
   constructor(
     private getArtifacts: ArtifactsService,

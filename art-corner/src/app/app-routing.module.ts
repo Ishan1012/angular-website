@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'community/general-community', component: GeneralCommunityPageComponent},
   { path: 'news', component: BlogNewsSectionComponent },
   { path: 'about', component: FeedbackAboutUsComponent },
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  // { path: '', redirectTo: '/index', pathMatch: 'full' },
   // { path: '**', component: ErrorPageComponent }
 ];
 
