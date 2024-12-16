@@ -6,7 +6,7 @@
     <div class="row g-4 d-flex justify-content-center">
       <div *ngFor="let item of artifacts; trackBy: trackByFn" class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-12">
         <div class="card text-center h-100" style="overflow: hidden;">
-          <img [src]="'/The-Art-Corner-Web-Application'+item.img" loading="lazy" class="card-img-top img-fit" alt="Image" (click)="readMore(item)">
+          <img [src]="'/The-Art-Corner-Web-Application/'+item.img" loading="lazy" class="card-img-top img-fit" alt="Image" (click)="readMore(item)">
           <div class="card-body edit-card-body">
             <h5 class="card-title">{{item.title}}</h5>
             <div class="btn-styles text-end fw-normal">
