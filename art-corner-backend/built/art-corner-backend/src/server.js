@@ -20,7 +20,7 @@ var app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: ["http://localhost:4200"]
+    origin: ["https://art-corner.vercel.app"]
 }));
 app.use("/api/artifacts", artifacts_router_1.default);
 app.use("/api/community", community_router_1.default);
