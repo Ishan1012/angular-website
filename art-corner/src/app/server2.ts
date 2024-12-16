@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: ["https://art-corner.vercel.app/"]
+    origin: ["https://art-corner.vercel.app"]
 }));
 
 app.use("/api/artifacts", artifactsRouter);
