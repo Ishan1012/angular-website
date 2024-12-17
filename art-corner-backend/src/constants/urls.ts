@@ -1,3 +1,3 @@
-export const PORT = 4269;
+export const PORT = 5000;
 
-export const BASE_URL = "http://localhost:"+PORT+"/api/uploads/";
+export const BASE_URL = "https://art-corner.vercel.app:"+PORT+"/api/uploads/";

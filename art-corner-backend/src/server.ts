@@ -38,5 +38,5 @@ app.get('/api/uploads/:filename', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log("Website served on http://localhost:"+PORT);
+    console.log("Website served on https://art-corner-backend.vercel.app:"+PORT);
 })
