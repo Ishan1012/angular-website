@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "art-corner-backend/src/server.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "art-corner-backend/src/server.js" }
-  ]
-}

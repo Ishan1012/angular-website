@@ -6,15 +6,26 @@ import cors from "cors";
 import artifactsRouter from './routers/artifacts.router';
 import communityRouter from './routers/community.router';
 import userRouter from './routers/user.router';
-import { dbConnect } from './configs/database.config';
 import path from 'path';
-import { PORT } from './constants/urls';
 import feedbackRouter from './routers/feedback.router';
-import newslettersRouter from './routers/newsletters.router';
+// import newslettersRouter from './routers/newsletters.router';
 
-dbConnect();
+import { connect, ConnectOptions } from "mongoose";
 
+export const dbConnect = () => {
+  connect(process.env.MONGO_URI!, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  } as ConnectOptions).then(
+    () => console.log("Connected to MongoDB successfully"),
+    (error) => console.log("Error connecting to MongoDB: ", error)
+  )
+}
 
+export const PORT = 3000;
+
+export const BASE_URL = "https://art-corner-backend.vercel.app/api/uploads/";
+export const HTTP_BAD_REQUEST = 400;
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -26,7 +37,7 @@ app.use("/api/artifacts", artifactsRouter);
 app.use("/api/community", communityRouter);
 app.use("/api/user", userRouter);
 app.use("/api/feedback", feedbackRouter);
-app.use("/api/newsletters", newslettersRouter);
+// app.use("/api/newsletters", newslettersRouter);
 
 // Serve static files from the uploads folder
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
