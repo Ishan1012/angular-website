@@ -1,0 +1,22 @@
+{
+    "functions": {
+        "api/server.ts": {
+            "maxDuration": 60
+        },
+        "api/routers/artifacts.router.ts": {
+            "maxDuration": 60
+        },
+        "api/routers/community.router.ts": {
+            "maxDuration": 60
+        },
+        "api/routers/feedback.router.ts": {
+            "maxDuration": 60
+        },
+        "api/routers/user.router.ts": {
+            "maxDuration": 60
+        },
+        "api/routers/upload.router.ts": {
+            "maxDuration": 60
+        }
+    }
+}
