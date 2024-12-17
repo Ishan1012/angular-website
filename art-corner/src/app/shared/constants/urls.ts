@@ -1,5 +1,5 @@
-export const BASE_URL = "https://art-corner.vercel.app";
-export const PORT = 4269;
+export const PORT = 5000;
+export const BASE_URL = "https://art-corner-backend.vercel.app:"+PORT;
 
 export const ARITFACTS_URL = BASE_URL + "/api/artifacts";
 export const NEWSLETTERS_URL = BASE_URL + "/api/newsletters";
