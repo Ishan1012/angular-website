@@ -4,9 +4,9 @@ import asyncHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
 import { CreateExploreModel } from "../models/createExplore.model";
 import multer from 'multer';
-import { CreateExplore } from "../../../art-corner/src/app/shared/model/CreateExplore";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import { BASE_URL } from "../constants/urls";
+import { CreateExplore } from "../models/CreateExplore";
 
 const router = Router();
 
