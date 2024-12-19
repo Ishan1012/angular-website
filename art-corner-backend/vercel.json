@@ -1,0 +1,64 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/server.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "src/routers/artifacts.router.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "src/routers/community.router.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "src/routers/user.router.ts",
+            "use": "@vercel/node"
+        },
+        
+        {
+            "src": "src/routers/feedback.router.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "src/routers/newsletters.router.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "src/routers/upload.router.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/server.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/artifacts.router.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/community.router.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/user.router.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/feedback.router.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/newsletters.router.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "src/routers/upload.router.ts"
+        }
+    ]
+  }

@@ -34,6 +34,7 @@ export class AppComponent {
   }
 
   GetResults(searchItem: string) {
+    searchItem = searchItem.replace('?','');
     if(searchItem!=='')
       this.router.navigate(['/explore/search',searchItem]);
     else

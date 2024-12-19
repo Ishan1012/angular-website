@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
-import express from "express";
+import express from 'express';
+import http from 'http';
+import { Server as SocketIOServer, Socket } from 'socket.io';
 import cors from "cors";
+import dotenv from 'dotenv';
 import artifactsRouter from './routers/artifacts.router';
 import communityRouter from './routers/community.router';
 import userRouter from './routers/user.router';
@@ -12,14 +12,16 @@ import { PORT } from './constants/urls';
 import feedbackRouter from './routers/feedback.router';
 import newslettersRouter from './routers/newsletters.router';
 
-dbConnect();
+dotenv.config();
 
+const app: express.Application = express();
+const server: http.Server = http.createServer(app);
+const io: SocketIOServer = new SocketIOServer(server);
 
-const app = express();
 app.use(express.json());
 app.use(cors({
-    credentials: true,
-    origin: ["http://localhost:4200"]
+  credentials: true,
+  origin: ["https://art-corner.vercel.app"]
 }));
 
 app.use("/api/artifacts", artifactsRouter);
@@ -37,6 +39,17 @@ app.get('/api/uploads/:filename', (req, res) => {
   res.sendFile(filePath);
 });
 
-app.listen(PORT, () => {
-    console.log("Website served on http://localhost:"+PORT);
-})
+// Connect to the database
+dbConnect();
+
+// Socket.io connection handling
+io.on('connection', (socket: Socket) => {
+  console.log('a user connected');
+  // ... handle socket events
+});
+
+module.exports = app;
+
+// server.listen(PORT, () => {
+//   console.log("Website served on http://localhost:"+PORT);
+// });

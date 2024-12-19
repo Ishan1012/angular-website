@@ -9,7 +9,6 @@ import { BookmarkService } from '../services/bookmark.service';
 import { Bookmarks } from '../shared/model/Bookmarks';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/model/User';
-import { PORT } from '../shared/constants/urls';
 
 
 @Component({

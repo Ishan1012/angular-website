@@ -20,8 +20,8 @@
         <ng-template #clipboard>
             <a routerLink="/login" class="btn" ><i class="bi bi-download fs-3"></i></a>
         </ng-template>
-        <a target="_blank" class="btn"><i class="bi bi-instagram fs-3"></i></a>
-        <a target="_blank" class="btn"><i class="bi bi-twitter-x fs-3"></i></a>
+        <a target="_blank" href="https://www.instagram.com/" class="btn"><i class="bi bi-instagram fs-3"></i></a>
+        <a target="_blank" href="https://x.com/?lang=en" class="btn"><i class="bi bi-twitter-x fs-3"></i></a>
         <a target="_blank" (click)="copyToClipboard()" class="btn"><i [ngClass]="!iscopy?'bi-clipboard':'bi-clipboard-check-fill'" class="bi fs-3"></i></a>
     </div>
     <br>
